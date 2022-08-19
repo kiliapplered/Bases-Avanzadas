@@ -3,7 +3,9 @@
 # @Fecha 17 de agosto de 2022
 # @Descripción Ejercicio práctico 02 - Tema 1
 
-
+#
+# Variables que se obtienen a partir de la llamada en consola
+#
 archivoImagenes="${1}"
 numImagenes="${2}"
 archivoZip="${3}"
