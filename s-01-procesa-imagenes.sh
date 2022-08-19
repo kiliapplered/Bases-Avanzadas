@@ -3,9 +3,10 @@
 # @Fecha 17 de agosto de 2022
 # @Descripción Ejercicio práctico 02 - Tema 1
 
+
 archivoImagenes="${1}"
 numImagenes="${2}"
-archivoZip=${3}"
+archivoZip="${3}"
 
 #
 # Función encargada de mostrar ayuda en la pantalla
@@ -13,7 +14,7 @@ archivoZip=${3}"
 function ayuda(){
   codigoSalida="${1}"
   cat s-02-ayuda.sh
-  exit "${codigoSalida]"
+  exit "${codigoSalida}"
 }
 
 #
@@ -47,7 +48,7 @@ if [ -n "${archivoZip}" ]; then
 else
   dirSalida="/tmp/${USER}/imagenes"
   mkdir -p "${dirSalida}"
-  nombreZip = "imagenes - $(date'+%y-%m-%d-%H-%M-%S').
+  nombreZip = "imagenes - $(date'+%y-%m-%d-%H-%M-%S')."
 fi;
 #
 # Leer archivo de imágenes
@@ -71,5 +72,5 @@ do
   rm -f "${IMG_ZIP_FILE}"
   zip -j "${IMG_ZIP_FILE}" "${dirSalida}/*"
   chmod 600 "${IMG_ZIP_FILE}"
-  unzip -zl "${IMG_ZIP_FILE}" > "${dirSalida]"/s-00-archivos.txt
+  unzip -zl "${IMG_ZIP_FILE}" > "${dirSalida]"/s-00-archivos.txt"
   rm -f "${dirSalida}/*.jpg"
