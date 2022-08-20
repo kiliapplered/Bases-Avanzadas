@@ -11,7 +11,7 @@ numImagenes="${2}"
 archivoZip="${3}"
 
 #
-# Función encargada de mostrar ayuda en la pantalla
+# Función encargada de mostrar ayuda en la pantalla Holi
 #
 function ayuda(){
   codigoSalida="${1}"
