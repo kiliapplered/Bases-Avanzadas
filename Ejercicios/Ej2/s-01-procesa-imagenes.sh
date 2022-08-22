@@ -42,7 +42,7 @@ if ! [[ "${numImagenes}" =~ [0-9]+ && "${numImagenes}" -gt 0 &&
   ayuda 102
 fi;
 
-# si se especifica ruta de salida, checar que exista el directorio
+# Si se especifica ruta de salida, checar que exista el directorio
 if [ -n "${archivoZip}" ]; then
   dirSalida=$(dirname "${archivoZip}")
   nombreZip=$(basename "${archivoZip}")
@@ -56,6 +56,7 @@ else
   mkdir -p "${dirSalida}"
   nombreZip="imagenes-$(date '+%Y-%m-%d-%H-%M-%S').zip"
 fi;
+
 #
 # Leer archivo de imágenes
 #
@@ -72,11 +73,15 @@ do
     echo "ERROR: no se puede descargar imagen"
     ayuda 104
   fi;
-count=$((count+1))
+  count=$((count+1))
 done < "${archivoImagenes}"
+
+#Inicialización de la variable de entorno
 export IMG_ZIP_FILE = ${dirSalida}/${nombreZip}
 rm -f "${IMG_ZIP_FILE}"
+# Creación del archivo zip y cambiando sus permisos
 zip -j "${IMG_ZIP_FILE}" "${dirSalida}/*"
 chmod 600 "${IMG_ZIP_FILE}"
+# Generación del archivo de texto
 unzip -zl "${IMG_ZIP_FILE}" > "${dirSalida]"/s-00-lista-archivos.txt"
 rm -f "${dirSalida}/*.jpg"
