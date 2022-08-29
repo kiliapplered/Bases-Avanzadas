@@ -24,8 +24,6 @@ idle> create user karla01 identified by karla quota unlimited on users;
 
 User created.
 
-idle> grante create table, create session to karla01;
-SP2-0734: unknown command beginning "grante cre..." - rest of line ignored.
 idle> grant create table, create session to karla01;
 
 Grant succeeded.
@@ -54,20 +52,6 @@ Connected to:
 Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
 Version 19.3.0.0.0
 
-karla01@knnbda1> create table test(idnumber); 
-create table test(idnumber)
-                  *
-ERROR at line 1:
-ORA-02263: need to specify the datatype for this column
-
-
-karla01@knnbda1> create table test(id_number); 
-create table test(id_number)
-                  *
-ERROR at line 1:
-ORA-02263: need to specify the datatype for this column
-
-
 karla01@knnbda1> create table test(id number); 
 
 Table created.
@@ -79,15 +63,6 @@ no rows selected
 karla01@knnbda1> disconnect
 Disconnected from Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
 Version 19.3.0.0.0
-karla01@knnbda1> connecta karla as sysdba
-SP2-0734: unknown command beginning "connecta k..." - rest of line ignored.
-karla01@knnbda1> connect karla as sysdba
-Enter password: 
-ERROR:
-ORA-01017: invalid username/password; logon denied
-
-
-karla01@knnbda1> disconnect
 karla01@knnbda1> connect karla01 as sysdba
 Enter password: 
 Connected.
@@ -160,4 +135,3 @@ sys@knnbda1> exit
 Disconnected from Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
 Version 19.3.0.0.0
 [oracle@pc-knn ~]$ 
-
