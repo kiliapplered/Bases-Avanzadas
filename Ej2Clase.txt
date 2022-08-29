@@ -1,0 +1,20 @@
+[karla@pc-knn ~]$ su -l oracle
+Password: 
+[oracle@pc-knn ~]$ sqlplus /nolog
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Sun Aug 28 21:24:19 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+idle> connect usr_noexiste as sysdba
+Enter password: 
+Connected.
+sys@knnbda1> ! echo "It's magic"
+It's magic
+
+sys@knnbda1> exit
+Disconnected from Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+[oracle@pc-knn ~]$ 
+
