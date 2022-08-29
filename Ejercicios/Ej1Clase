@@ -1,0 +1,163 @@
+[karla@pc-knn ~]$ sqlplus sys as sysdba
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Mon Aug 22 11:49:04 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Enter password: 
+Connected to an idle instance.
+
+idle> startup
+ORACLE instance started.
+
+Total System Global Area  805303360 bytes
+Fixed Size		    8901696 bytes
+Variable Size		  247463936 bytes
+Database Buffers	  541065216 bytes
+Redo Buffers		    7872512 bytes
+Database mounted.
+Database opened.
+idle> show user
+USER is "SYS"
+idle> create user karla01 identified by karla quota unlimited on users;
+
+User created.
+
+idle> grante create table, create session to karla01;
+SP2-0734: unknown command beginning "grante cre..." - rest of line ignored.
+idle> grant create table, create session to karla01;
+
+Grant succeeded.
+
+idle> grant sysdba to karla01;
+
+Grant succeeded.
+
+idle> grant sysoper to karla01;
+
+Grant succeeded.
+
+idle> disconnect
+Disconnected from Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+idle> exit
+[karla@pc-knn ~]$ sqlplus karla01/karla
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Mon Aug 22 11:53:57 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+
+karla01@knnbda1> create table test(idnumber); 
+create table test(idnumber)
+                  *
+ERROR at line 1:
+ORA-02263: need to specify the datatype for this column
+
+
+karla01@knnbda1> create table test(id_number); 
+create table test(id_number)
+                  *
+ERROR at line 1:
+ORA-02263: need to specify the datatype for this column
+
+
+karla01@knnbda1> create table test(id number); 
+
+Table created.
+
+karla01@knnbda1> select * from test;
+
+no rows selected
+
+karla01@knnbda1> disconnect
+Disconnected from Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+karla01@knnbda1> connecta karla as sysdba
+SP2-0734: unknown command beginning "connecta k..." - rest of line ignored.
+karla01@knnbda1> connect karla as sysdba
+Enter password: 
+ERROR:
+ORA-01017: invalid username/password; logon denied
+
+
+karla01@knnbda1> disconnect
+karla01@knnbda1> connect karla01 as sysdba
+Enter password: 
+Connected.
+sys@knnbda1> show user
+USER is "SYS"
+sys@knnbda1> select sys_context('USERENV', 'CURRENT_SCHEMA') as esquema from dual;
+
+ESQUEMA
+--------------------------------------------------------------------------------
+SYS
+
+sys@knnbda1> select * from test;
+select * from test
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+sys@knnbda1> select * from karla01.test;
+
+no rows selected
+
+sys@knnbda1> exit
+Disconnected from Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+[karla@pc-knn ~]$ sqlplus karla01 as sysoper
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Mon Aug 22 11:58:55 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Enter password: 
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+
+public@knnbda1> select sys_context('USERENV', 'CURRENT_SCHEMA') as esquema from dual;
+
+ESQUEMA
+--------------------------------------------------------------------------------
+PUBLIC
+
+public@knnbda1> select * from karla01.test;
+select * from karla01.test
+                      *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+public@knnbda1> exit
+Disconnected from Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+[karla@pc-knn ~]$ su -l oracle
+Password: 
+[oracle@pc-knn ~]$ sqlplus / as sysdba
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Mon Aug 22 12:00:54 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+
+sys@knnbda1> exit
+Disconnected from Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+[oracle@pc-knn ~]$ 
+
