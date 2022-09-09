@@ -12,12 +12,9 @@ fi;
 echo \
 "db_name='${ORACLE_SID}'
 memory_target=768M
-control_files=(/unam-
-bda/d01/app/oracle/oradata/${ORACLE_SID^^}/control01.ctl,
-               /unam-
-bda/d02/app/oracle/oradata/${ORACLE_SID^^}/control02.ctl,
-               /unam-
-bda/d03/app/oracle/oradata/${ORACLE_SID^^}/control03.ctl)
+control_files=(/unam-bda/d01/app/oracle/oradata/${ORACLE_SID^^}/control01.ctl,
+               /unam-bda/d02/app/oracle/oradata/${ORACLE_SID^^}/control02.ctl,
+               /unam-bda/d03/app/oracle/oradata/${ORACLE_SID^^}/control03.ctl)
 " >$pfile
 
 echo "Listo"
