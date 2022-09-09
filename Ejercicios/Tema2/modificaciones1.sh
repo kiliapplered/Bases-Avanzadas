@@ -3,6 +3,8 @@
 # @Fecha 31 de agosto de 2022
 # @Descripción Modificaciones al archivo fstab
 
+mount -o loop /dev/loop0/unam-bda/d01
+
 cat /etc/fstab
 
 # Loop devices para bda
@@ -14,6 +16,6 @@ cat /etc/fstab
 
 # Sin reiniciarla poner lo siguiente para probar
 sudo mount -a
-df -h 
+df -h | grep "/*unam-bda/"
 # Si ejecuta sin error, los archivos fueron montados de manera exitosa
 # Nota: Podemos crear ligas para usar otros directorios (util en mi caso)
