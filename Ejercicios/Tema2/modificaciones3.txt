@@ -1,0 +1,6 @@
+Para los redo files inicialmente se tienen 3 discos.
+Se implementa el concepto del multiplexado y el contenido de los miembros es
+idéntico entre si. En roducción, se recomienda separar estos archivos de control. 
+Son 3 grupos porque los archivos pueden llenarse muy facilmente y al llenarse un
+grupo, se pasa al siguiente grupo para seguir llenando y, cuando se libere uno, se 
+puede llenar los previos a manera de un ciclo. 

@@ -1,0 +1,20 @@
+Notas para el archivo PFILE
+Al crear nuestra nueva BD es importante tomar en cuenta lo siguiente:
+  * Solo el parámetro db-name es obligatorio.
+  * Se recomienda colocar el parámetro control-files para que la base sepa 
+    donde estan sus archivos de control. Se suelen multiplexar archivos para 
+    minimizar riesgos y crear copias redundantes en discos diferentes (no en 
+    el mismo por buenas prácticas xD).
+  * Los archivos de control se crean cuando la base se crea. 
+  * Si alguno se daña, no levanta la base. Por ello, se podría comentar la 
+    parte dañada y trabajar con las otras partes. 
+  * El otro parámetro recomendado es memory_target, ya que indica la cantidad 
+    máxima de memoria para nuestra base de datos. Por lo menos debe de ser de 
+    400M, aunque en el curso será 768M. Sirve para no acabarnos toda la RAM del
+    sistema operativo. 
+  * Si se necesitan modificar parámetros de la BD de manera permanente, es 
+    recomendable hacer los cambios en el archivo binario (ya que este es el
+    que lee la base de datos). 
+  * Sin importar el punto anterior, es importante el archivo de texto (PFILE)
+    debido a que es posible recuperar el SPFILE en caso de que quede corrupto 
+    o dañado
