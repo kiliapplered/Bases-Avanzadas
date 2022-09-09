@@ -11,9 +11,9 @@ mkdir -p /unam-bda/disk-images
 cd /unam-bda/disk-images
 
 echo "Creando disk*.img"
-dd if=/dev/zero of=disk1.img bs=100M count 100M
-dd if=/dev/zero of=disk2.img bs=100M count 100M
-dd if=/dev/zero of=disk3.img bs=100M count 100M
+dd if=/dev/zero of=disk1.img bs=100M count=10
+dd if=/dev/zero of=disk2.img bs=100M count=10
+dd if=/dev/zero of=disk3.img bs=100M count=10
 
 echo "Mostrando la creación de los archivos"
 du -sh disk*img
@@ -32,8 +32,8 @@ mkfs.ext4 disk2.img
 mkfs.ext4 disk3.img
 
 echo "Crear los directorios donde los dispositivos serán montados"
-mkdir/unam-bda/d01
-mkdir/unam-bda/d02
-mkdir/unam-bda/d03
+mkdir /unam-bda/d01
+mkdir /unam-bda/d02
+mkdir /unam-bda/d03
 
 echo "Editar /etc/fstab de forma manual"

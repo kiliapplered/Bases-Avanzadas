@@ -5,7 +5,7 @@
 
 mount -o loop /dev/loop0/unam-bda/d01
 
-cat /etc/fstab
+nano /etc/fstab
 
 # Loop devices para bda
 /unam-bda/disk-images/disk1.img     /unam-bda/d01     auto      loop      0       0
