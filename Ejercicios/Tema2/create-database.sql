@@ -1,5 +1,5 @@
 --Minimo 1gb para que exista la base de datos.
- database jrcbda2
+ create database jrcbda2
  user sys identified by system2
  user system identified by system2 
  logfile group 1 (

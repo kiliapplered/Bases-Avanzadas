@@ -1,6 +1,6 @@
 -- @Autor Najera Noyola Karla Andrea
 -- @Fecha 31 de agosto de 2022
--- @Descripción Ejercicio
+-- @Descripción Creación de un spfile a partir de un pfile.
 
 -- Notas para ejecutarlo (Configuración solo dura mientras terminal esta abierta:
 -- export ORACLE_SID=knnbda2 
@@ -11,6 +11,9 @@ create spfile from pfile;
 -- También puede ser al revés xD
 -- Por defecto toma la misma convención de donde se encuentra el pfile
 -- No obstante, se pueden utilizar rutas diferentes. 
+
+Prompt Verificando la existencia del nuevo spfile. 
+!ls ${ORACLE_HOME}/dbs/spfileknnbda2.ora
 
 -- Tras esto, se puede crear la base de datos DDDDDD:
 
