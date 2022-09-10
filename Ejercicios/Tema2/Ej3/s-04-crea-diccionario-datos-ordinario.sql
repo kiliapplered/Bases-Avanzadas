@@ -11,7 +11,7 @@ Prompt Ejecución de scripts con sys
 @?/rdbms/admin/utlrp.sql
 
 Prompt Accediendo como usuario system
-connect system/system2 as sysdba
+connect system/system2
 
 Prompt Ejecución de scripts con system
 @?/sqlplus/admin/pupbld.sql

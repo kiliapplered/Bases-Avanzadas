@@ -7,6 +7,9 @@
 -- sqlplus /nolog
 -- start s-01-crea-spfile-ordinario.sql
 
+Prompt Accediendo como usuario sys
+connect sys/hola1234* as sysdba
+
 create spfile from pfile;
 -- También puede ser al revés xD
 -- Por defecto toma la misma convención de donde se encuentra el pfile
