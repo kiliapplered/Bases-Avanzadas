@@ -79,9 +79,4 @@ create table karla0204.t05_update_param_spfile as
 --Creando pfile
 create pfile='/unam-bda/ejercicios-practicos/t0204/e-03-spparameter-pfile.txt' from spfile;
 
-Prompt Mostrando tablas generadas
-select * from karla0204.t03_update_param_session;
-select * from karla0204.t04_update_param_instance;
-select * from karla0204.t05_update_param_spfile;
-
 whenever sqlerror continue none;
