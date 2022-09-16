@@ -1,6 +1,6 @@
 -- @Autor Najera Noyola Karla Andrea
 -- @Fecha 16 de septiembre de 2022
--- @Descripción Creaación de tabla con parámetros de la vista v$system_parameter
+-- @Descripción Creación de tabla con parámetros de la vista v$system_parameter
 
 whenever sqlerror exit rollback;
 
