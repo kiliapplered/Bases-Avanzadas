@@ -28,14 +28,14 @@ create user karla0204 identified by karla quota unlimited on users;
 Prompt Asignando permisos
 grant create session, create table, create sequence, create procedure to karla0204;
 
-Prompt Creando tabla t_01_spparameters
-create table karla0204.t_01_spparameters as 
+Prompt Creando tabla t01_spparameters
+create table karla0204.t01_spparameters as 
   (select name, value from v$spparameter where value is not null);
 
 Prompt Mostrando datos de la tabla creada
 set linesize window;
 column name format a25;
 column value format a60;
-select * from karla0204.t_01_spparameters;
+select * from karla0204.t01_spparameters;
 
 whenever sqlerror continue none;
