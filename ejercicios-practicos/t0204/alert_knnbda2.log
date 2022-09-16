@@ -1,0 +1,773 @@
+2022-09-10T07:47:38.432765-05:00
+Starting ORACLE instance (normal) (OS id: 3197)
+2022-09-10T07:47:38.444743-05:00
+****************************************************
+ /dev/shm will be used for creating SGA 
+Large pages will not be used. Only standard 4K pages will be used 
+****************************************************
+2022-09-10T07:47:38.449793-05:00
+**********************************************************************
+2022-09-10T07:47:38.449842-05:00
+Dump of system resources acquired for SHARED GLOBAL AREA (SGA) 
+
+2022-09-10T07:47:38.449956-05:00
+ Domain name: user.slice/user-1000.slice/session-2.scope
+2022-09-10T07:47:38.450003-05:00
+ Per process system memlock (soft) limit = 64K
+2022-09-10T07:47:38.450048-05:00
+ Expected per process system memlock (soft) limit to lock
+ instance MAX SHARED GLOBAL AREA (SGA) into memory: 768M
+2022-09-10T07:47:38.450134-05:00
+ Available system pagesizes:
+  4K, 2048K 
+2022-09-10T07:47:38.450220-05:00
+ Supported system pagesize(s):
+2022-09-10T07:47:38.450309-05:00
+  PAGESIZE  AVAILABLE_PAGES  EXPECTED_PAGES  ALLOCATED_PAGES  ERROR(s)
+2022-09-10T07:47:38.450364-05:00
+        4K       Configured          196613          196613        NONE
+2022-09-10T07:47:38.450450-05:00
+ Reason for not supporting certain system pagesizes: 
+2022-09-10T07:47:38.450500-05:00
+  2048K - Dynamic allocate and free memory regions
+2022-09-10T07:47:38.450543-05:00
+RECOMMENDATION:
+2022-09-10T07:47:38.450588-05:00
+ 1. Increase per process memlock (soft) limit to at least 768MB
+ to lock 100% of SHARED GLOBAL AREA (SGA) pages into physical memory
+2022-09-10T07:47:38.450674-05:00
+**********************************************************************
+2022-09-10T07:47:39.865040-05:00
+LICENSE_MAX_SESSION = 0
+LICENSE_SESSIONS_WARNING = 0
+2022-09-10T07:47:39.895600-05:00
+Initial number of CPU is 2
+Number of processor cores in the system is 2
+Number of processor sockets in the system is 2
+Shared memory segment for instance monitoring created
+Capability Type : Network 
+capabilities requested : 7 detected : 0 Simulated : 0
+Capability Type : Runtime Environment 
+capabilities requested : 400000FF detected : 40000000 Simulated : 0
+Capability Type : Engineered Systems 
+capabilities requested : 7 detected : 0 Simulated : 0
+Capability Type : Database Test 
+capabilities requested : 3 detected : 0 Simulated : 0
+Using LOG_ARCHIVE_DEST_1 parameter default value as /u01/app/oracle/product/19.3.0/dbhome_1/dbs/arch
+Autotune of undo retention is turned on. 
+IMODE=BR
+ILAT =35
+LICENSE_MAX_USERS = 0
+SYS auditing is enabled
+NOTE: remote asm mode is local (mode 0x1; from cluster type)
+NOTE: Using default ASM root directory ASM
+NOTE: remote asm mode is local (mode 0x1; from cluster type)
+NOTE: Cluster configuration type = NONE [2]
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0.
+ORACLE_HOME:    /u01/app/oracle/product/19.3.0/dbhome_1
+System name:	Linux
+Node name:	pc-knn.fi.unam
+Release:	5.4.17-2136.310.7.el8uek.x86_64
+Version:	#2 SMP Tue Aug 9 17:49:20 PDT 2022
+Machine:	x86_64
+Using parameter settings in server-side spfile /u01/app/oracle/product/19.3.0/dbhome_1/dbs/spfileknnbda2.ora
+System parameters with non-default values:
+  memory_target            = 768M
+  control_files            = "/unam-bda/d01/app/oracle/oradata/KNNBDA2/control01.ctl"
+  control_files            = "/unam-bda/d02/app/oracle/oradata/KNNBDA2/control02.ctl"
+  control_files            = "/unam-bda/d03/app/oracle/oradata/KNNBDA2/control03.ctl"
+  db_name                  = "knnbda2"
+2022-09-10T07:47:40.318750-05:00
+============================================================
+NOTE: PatchLevel of this instance 0
+============================================================
+Starting background process PMON
+2022-09-10T07:47:40.675577-05:00
+PMON started with pid=2, OS id=3201 
+Starting background process CLMN
+2022-09-10T07:47:40.695514-05:00
+CLMN started with pid=3, OS id=3203 
+Starting background process PSP0
+2022-09-10T07:47:40.732961-05:00
+PSP0 started with pid=4, OS id=3205 
+Starting background process VKTM
+2022-09-10T07:47:40.762883-05:00
+VKTM started with pid=5, OS id=3207 at elevated (RT) priority
+2022-09-10T07:47:40.764446-05:00
+VKTM running at (1)millisec precision with DBRM quantum (100)ms
+Starting background process GEN0
+2022-09-10T07:47:40.783665-05:00
+GEN0 started with pid=6, OS id=3211 
+Starting background process MMAN
+2022-09-10T07:47:40.806682-05:00
+MMAN started with pid=7, OS id=3213 
+Starting background process GEN1
+2022-09-10T07:47:40.919244-05:00
+GEN1 started with pid=9, OS id=3217_3218 
+2022-09-10T07:47:40.919445-05:00
+Starting background process DIAG
+2022-09-10T07:47:40.938935-05:00
+DIAG started with pid=8, OS id=3220 
+Starting background process OFSD
+2022-09-10T07:47:40.974008-05:00
+OFSD started with pid=11, OS id=3222_3223 
+Starting background process DBRM
+2022-09-10T07:47:40.976003-05:00
+Oracle running with ofslib:'Oracle File Server Library' version=2
+2022-09-10T07:47:40.994286-05:00
+DBRM started with pid=13, OS id=3225 
+Starting background process VKRM
+2022-09-10T07:47:41.013275-05:00
+VKRM started with pid=14, OS id=3227 
+Starting background process SVCB
+2022-09-10T07:47:41.040174-05:00
+SVCB started with pid=15, OS id=3229 
+Starting background process PMAN
+2022-09-10T07:47:41.064881-05:00
+PMAN started with pid=16, OS id=3231 
+Starting background process DIA0
+Starting background process DBW0
+2022-09-10T07:47:41.089474-05:00
+DIA0 started with pid=17, OS id=3233 
+Starting background process LGWR
+2022-09-10T07:47:41.157407-05:00
+DBW0 started with pid=18, OS id=3235 
+2022-09-10T07:47:41.185679-05:00
+LGWR started with pid=19, OS id=3237 
+Starting background process CKPT
+2022-09-10T07:47:41.210771-05:00
+CKPT started with pid=20, OS id=3239 
+2022-09-10T07:47:41.260614-05:00
+LGWR slave LG00 created with pid=21, OS pid=3241
+Starting background process SMON
+2022-09-10T07:47:41.277885-05:00
+SMON started with pid=22, OS id=3243 
+LGWR slave LG01 created with pid=23, OS pid=3245
+Starting background process SMCO
+2022-09-10T07:47:41.328268-05:00
+SMCO started with pid=24, OS id=3247 
+Starting background process RECO
+2022-09-10T07:47:41.358483-05:00
+RECO started with pid=25, OS id=3249 
+Starting background process LREG
+2022-09-10T07:47:41.400374-05:00
+LREG started with pid=27, OS id=3253 
+Starting background process PXMN
+2022-09-10T07:47:41.460767-05:00
+PXMN started with pid=29, OS id=3257 
+Starting background process FENC
+2022-09-10T07:47:41.485853-05:00
+FENC started with pid=30, OS id=3259 
+Starting background process MMON
+2022-09-10T07:47:41.516192-05:00
+MMON started with pid=31, OS id=3261 
+Starting background process MMNL
+2022-09-10T07:47:41.546238-05:00
+MMNL started with pid=32, OS id=3263 
+Starting background process TMON
+2022-09-10T07:47:41.583438-05:00
+TMON started with pid=30, OS id=3265 
+2022-09-10T07:47:41.585248-05:00
+Setting CPU count to 2
+ORACLE_BASE from environment = /u01/app/oracle
+Spfile /u01/app/oracle/product/19.3.0/dbhome_1/dbs/spfileknnbda2.ora is in old pre-11 format and compatible >= 11.0.0; converting to new H.A.R.D. compliant format.
+2022-09-10T07:47:41.745739-05:00
+ create database knnbda2
+  user sys identified by 
+  user system identified by 
+  logfile group 1 (
+    '/unam-bda/d01/app/oracle/oradata/KNNBDA2/redo01a.log',
+    '/unam-bda/d02/app/oracle/oradata/KNNBDA2/redo01b.log',
+    '/unam-bda/d03/app/oracle/oradata/KNNBDA2/redo01c.log') size 50m
+blocksize 512,
+  group 2 (
+    '/unam-bda/d01/app/oracle/oradata/KNNBDA2/redo02a.log',
+    '/unam-bda/d02/app/oracle/oradata/KNNBDA2/redo02b.log',
+    '/unam-bda/d03/app/oracle/oradata/KNNBDA2/redo02c.log') size 50m
+blocksize 512,
+  group 3 (
+    '/unam-bda/d01/app/oracle/oradata/KNNBDA2/redo03a.log',
+    '/unam-bda/d02/app/oracle/oradata/KNNBDA2/redo03b.log',
+    '/unam-bda/d03/app/oracle/oradata/KNNBDA2/redo03c.log') size 50m
+blocksize 512
+  maxloghistory 1
+  maxlogfiles 16
+  maxlogmembers 3
+  maxdatafiles 1024
+  character set AL32UTF8
+  national character set AL16UTF16
+  extent management local
+  datafile '/u01/app/oracle/oradata/KNNBDA2/system01.dbf'
+  size 700m reuse autoextend on next 10240k maxsize
+unlimited
+  sysaux datafile
+'/u01/app/oracle/oradata/KNNBDA2/sysaux01.dbf'
+  size 550m reuse autoextend on next 10240k maxsize
+unlimited
+  default tablespace users
+    datafile '/u01/app/oracle/oradata/KNNBDA2/users01.dbf'
+    size 500m reuse autoextend on maxsize unlimited
+  default temporary tablespace tempts1
+    tempfile '/u01/app/oracle/oradata/KNNBDA2/temp01.dbf'
+    size 20m reuse autoextend on next 640k maxsize unlimited
+  undo tablespace undotbs1
+    datafile '/u01/app/oracle/oradata/KNNBDA2/undotbs01.dbf'
+    size 200m reuse autoextend on next 5120k maxsize unlimited
+2022-09-10T07:47:42.057678-05:00
+Expanded controlfile section 32 from 31 to 128 records
+Requested to grow by 97 records; added 3 blocks of records
+.... (PID:3266): Redo network throttle feature is disabled at mount time
+2022-09-10T07:47:42.083214-05:00
+Database mounted in Exclusive Mode
+Lost write protection disabled
+.... (PID:3266): Using STANDBY_ARCHIVE_DEST parameter default value as /u01/app/oracle/product/19.3.0/dbhome_1/dbs/arch [krsd.c:18141]
+2022-09-10T07:47:44.013458-05:00
+Using default pga_aggregate_limit of 2048 MB
+2022-09-10T07:47:45.007795-05:00
+Successful mount of redo thread 1, with mount id 54365469
+2022-09-10T07:47:45.009169-05:00
+Ping without log force is disabled:
+  instance mounted in exclusive mode.
+Buffer Cache Full DB Caching mode changing from FULL CACHING DISABLED to FULL CACHING ENABLED 
+Database SCN compatibility initialized to 3
+2022-09-10T07:47:45.034150-05:00
+Assigning activation ID 54365469 (0x33d8d1d)
+2022-09-10T07:47:45.067805-05:00
+TT00 (PID:3330): Gap Manager starting
+2022-09-10T07:47:45.098996-05:00
+Redo log for group 1, sequence 1 is not located on DAX storage
+Thread 1 opened at log sequence 1
+  Current log# 1 seq# 1 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo01a.log
+  Current log# 1 seq# 1 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo01b.log
+  Current log# 1 seq# 1 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo01c.log
+Successful open of redo thread 1
+2022-09-10T07:47:45.125646-05:00
+MTTR advisory is disabled because FAST_START_MTTR_TARGET is not set
+stopping change tracking
+processing ?/rdbms/admin/dcore.bsq
+create tablespace SYSTEM datafile  '/u01/app/oracle/oradata/KNNBDA2/system01.dbf'
+  size 700m reuse autoextend on next 10240k maxsize
+unlimited
+  
+  EXTENT MANAGEMENT LOCAL online
+2022-09-10T07:47:48.685232-05:00
+Endian type of dictionary set to little
+2022-09-10T07:47:50.497410-05:00
+Completed: create tablespace SYSTEM datafile  '/u01/app/oracle/oradata/KNNBDA2/system01.dbf'
+  size 700m reuse autoextend on next 10240k maxsize
+unlimited
+  
+  EXTENT MANAGEMENT LOCAL online
+create rollback segment SYSTEM tablespace SYSTEM
+  storage (initial 50K next 50K)
+Completed: create rollback segment SYSTEM tablespace SYSTEM
+  storage (initial 50K next 50K)
+2022-09-10T07:47:50.733303-05:00
+Undo initialization recovery: err:0 start: 820579 end: 820586 diff: 7 ms (0.0 seconds)
+Undo initialization online undo segments: err:0 start: 820586 end: 820586 diff: 0 ms (0.0 seconds)
+Caching undo dictionary info: used hint for object index=0 
+Caching undo dictionary info: used hint for object index=1 
+Caching undo dictionary info: used hint for object index=2 
+Caching undo dictionary info: used hint for object index=3 
+Caching undo dictionary info: used hint for object index=4 
+Undo initialization finished serial:0 start:820579 end:820588 diff:9 ms (0.0 seconds)
+2022-09-10T07:47:51.780107-05:00
+alter tablespace system force logging
+Completed: alter tablespace system force logging
+2022-09-10T07:47:51.947813-05:00
+processing ?/rdbms/admin/dsqlddl.bsq
+processing ?/rdbms/admin/dmanage.bsq
+CREATE TABLESPACE sysaux DATAFILE 
+'/u01/app/oracle/oradata/KNNBDA2/sysaux01.dbf'
+  size 550m reuse autoextend on next 10240k maxsize
+unlimited
+  
+  EXTENT MANAGEMENT LOCAL SEGMENT SPACE MANAGEMENT AUTO ONLINE FORCE LOGGING
+2022-09-10T07:47:53.215042-05:00
+Buffer Cache Full DB Caching mode changing from FULL CACHING ENABLED to FULL CACHING DISABLED 
+Full DB Caching disabled: DEFAULT_CACHE_SIZE should be at least 433 MBs bigger than current size. 
+2022-09-10T07:47:57.908827-05:00
+Completed: CREATE TABLESPACE sysaux DATAFILE 
+'/u01/app/oracle/oradata/KNNBDA2/sysaux01.dbf'
+  size 550m reuse autoextend on next 10240k maxsize
+unlimited
+  
+  EXTENT MANAGEMENT LOCAL SEGMENT SPACE MANAGEMENT AUTO ONLINE FORCE LOGGING
+alter tablespace system default compress for all operations
+Completed: alter tablespace system default compress for all operations
+alter tablespace sysaux default compress for all operations
+Completed: alter tablespace sysaux default compress for all operations
+2022-09-10T07:47:58.180522-05:00
+processing ?/rdbms/admin/dplsql.bsq
+processing ?/rdbms/admin/dtxnspc.bsq
+CREATE UNDO TABLESPACE UNDOTBS1 DATAFILE  '/u01/app/oracle/oradata/KNNBDA2/undotbs01.dbf'
+    size 200m reuse autoextend on next 5120k maxsize unlimited
+2022-09-10T07:48:00.347719-05:00
+[3266] Successfully onlined Undo Tablespace 2.
+Completed: CREATE UNDO TABLESPACE UNDOTBS1 DATAFILE  '/u01/app/oracle/oradata/KNNBDA2/undotbs01.dbf'
+    size 200m reuse autoextend on next 5120k maxsize unlimited
+CREATE TEMPORARY TABLESPACE "TEMPTS1" TEMPFILE  '/u01/app/oracle/oradata/KNNBDA2/temp01.dbf'
+    size 20m reuse autoextend on next 640k maxsize unlimited
+  
+Completed: CREATE TEMPORARY TABLESPACE "TEMPTS1" TEMPFILE  '/u01/app/oracle/oradata/KNNBDA2/temp01.dbf'
+    size 20m reuse autoextend on next 640k maxsize unlimited
+  
+ALTER DATABASE DEFAULT TEMPORARY TABLESPACE "TEMPTS1"
+Completed: ALTER DATABASE DEFAULT TEMPORARY TABLESPACE "TEMPTS1"
+CREATE  TABLESPACE "USERS" DATAFILE  '/u01/app/oracle/oradata/KNNBDA2/users01.dbf'
+    size 500m reuse autoextend on maxsize unlimited
+   SEGMENT SPACE MANAGEMENT AUTO
+2022-09-10T07:48:06.510513-05:00
+Completed: CREATE  TABLESPACE "USERS" DATAFILE  '/u01/app/oracle/oradata/KNNBDA2/users01.dbf'
+    size 500m reuse autoextend on maxsize unlimited
+   SEGMENT SPACE MANAGEMENT AUTO
+ALTER DATABASE DEFAULT TABLESPACE "USERS"
+Completed: ALTER DATABASE DEFAULT TABLESPACE "USERS"
+2022-09-10T07:48:06.560902-05:00
+processing ?/rdbms/admin/dfmap.bsq
+processing ?/rdbms/admin/denv.bsq
+processing ?/rdbms/admin/drac.bsq
+processing ?/rdbms/admin/dsec.bsq
+2022-09-10T07:48:08.753587-05:00
+processing ?/rdbms/admin/doptim.bsq
+processing ?/rdbms/admin/dobj.bsq
+processing ?/rdbms/admin/djava.bsq
+processing ?/rdbms/admin/dpart.bsq
+2022-09-10T07:48:09.806611-05:00
+processing ?/rdbms/admin/drep.bsq
+2022-09-10T07:48:10.953528-05:00
+processing ?/rdbms/admin/daw.bsq
+processing ?/rdbms/admin/dsummgt.bsq
+processing ?/rdbms/admin/dtools.bsq
+2022-09-10T07:48:12.124203-05:00
+processing ?/rdbms/admin/dexttab.bsq
+processing ?/rdbms/admin/ddm.bsq
+processing ?/rdbms/admin/dlmnr.bsq
+2022-09-10T07:48:13.408699-05:00
+processing ?/rdbms/admin/ddst.bsq
+processing ?/rdbms/admin/dfba.bsq
+processing ?/rdbms/admin/dpstdy.bsq
+processing ?/rdbms/admin/drupg.bsq
+processing ?/rdbms/admin/dtlog.bsq
+processing ?/rdbms/admin/dmisc.bsq
+processing ?/rdbms/admin/dhcs.bsq
+2022-09-10T07:48:15.457516-05:00
+Successfully created internal service SYS$BACKGROUND at open
+Successfully created internal service SYS$USERS at open
+joxcsys_required_dirobj_exists: directory object does not exist, pid 3266 cid 0
+joxcsys_ensure_directory_object: created directory object with path /u01/app/oracle/product/19.3.0/dbhome_1/javavm/admin/, pid 3266 cid 0
+replication_dependency_tracking turned off (no async multimaster replication found)
+Completed:  create database knnbda2
+  user sys identified by 
+  user system identified by 
+  logfile group 1 (
+    '/unam-bda/d01/app/oracle/oradata/KNNBDA2/redo01a.log',
+    '/unam-bda/d02/app/oracle/oradata/KNNBDA2/redo01b.log',
+    '/unam-bda/d03/app/oracle/oradata/KNNBDA2/redo01c.log') size 50m
+blocksize 512,
+  group 2 (
+    '/unam-bda/d01/app/oracle/oradata/KNNBDA2/redo02a.log',
+    '/unam-bda/d02/app/oracle/oradata/KNNBDA2/redo02b.log',
+    '/unam-bda/d03/app/oracle/oradata/KNNBDA2/redo02c.log') size 50m
+blocksize 512,
+  group 3 (
+    '/unam-bda/d01/app/oracle/oradata/KNNBDA2/redo03a.log',
+    '/unam-bda/d02/app/oracle/oradata/KNNBDA2/redo03b.log',
+    '/unam-bda/d03/app/oracle/oradata/KNNBDA2/redo03c.log') size 50m
+blocksize 512
+  maxloghistory 1
+  maxlogfiles 16
+  maxlogmembers 3
+  maxdatafiles 1024
+  character set AL32UTF8
+  national character set AL16UTF16
+  extent management local
+  datafile '/u01/app/oracle/oradata/KNNBDA2/system01.dbf'
+  size 700m reuse autoextend on next 10240k maxsize
+unlimited
+  sysaux datafile
+'/u01/app/oracle/oradata/KNNBDA2/sysaux01.dbf'
+  size 550m reuse autoextend on next 10240k maxsize
+unlimited
+  default tablespace users
+    datafile '/u01/app/oracle/oradata/KNNBDA2/users01.dbf'
+    size 500m reuse autoextend on maxsize unlimited
+  default temporary tablespace tempts1
+    tempfile '/u01/app/oracle/oradata/KNNBDA2/temp01.dbf'
+    size 20m reuse autoextend on next 640k maxsize unlimited
+  undo tablespace undotbs1
+    datafile '/u01/app/oracle/oradata/KNNBDA2/undotbs01.dbf'
+    size 200m reuse autoextend on next 5120k maxsize unlimited
+2022-09-10T07:49:59.250629-05:00
+Thread 1 advanced to log sequence 2 (LGWR switch)
+  Current log# 2 seq# 2 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo02a.log
+  Current log# 2 seq# 2 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo02b.log
+  Current log# 2 seq# 2 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo02c.log
+2022-09-10T07:50:26.764557-05:00
+Thread 1 advanced to log sequence 3 (LGWR switch)
+  Current log# 3 seq# 3 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo03a.log
+  Current log# 3 seq# 3 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo03b.log
+  Current log# 3 seq# 3 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo03c.log
+2022-09-10T07:51:11.759171-05:00
+Thread 1 cannot allocate new log, sequence 4
+Checkpoint not complete
+  Current log# 3 seq# 3 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo03a.log
+  Current log# 3 seq# 3 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo03b.log
+  Current log# 3 seq# 3 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo03c.log
+2022-09-10T07:51:14.800320-05:00
+Thread 1 advanced to log sequence 4 (LGWR switch)
+  Current log# 1 seq# 4 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo01a.log
+  Current log# 1 seq# 4 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo01b.log
+  Current log# 1 seq# 4 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo01c.log
+2022-09-10T07:52:35.809556-05:00
+Thread 1 cannot allocate new log, sequence 5
+Checkpoint not complete
+  Current log# 1 seq# 4 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo01a.log
+  Current log# 1 seq# 4 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo01b.log
+  Current log# 1 seq# 4 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo01c.log
+2022-09-10T07:52:38.847360-05:00
+Thread 1 advanced to log sequence 5 (LGWR switch)
+  Current log# 2 seq# 5 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo02a.log
+  Current log# 2 seq# 5 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo02b.log
+  Current log# 2 seq# 5 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo02c.log
+2022-09-10T07:53:11.858046-05:00
+Thread 1 cannot allocate new log, sequence 6
+Checkpoint not complete
+  Current log# 2 seq# 5 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo02a.log
+  Current log# 2 seq# 5 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo02b.log
+  Current log# 2 seq# 5 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo02c.log
+2022-09-10T07:53:14.588563-05:00
+Thread 1 advanced to log sequence 6 (LGWR switch)
+  Current log# 3 seq# 6 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo03a.log
+  Current log# 3 seq# 6 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo03b.log
+  Current log# 3 seq# 6 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo03c.log
+2022-09-10T07:53:56.935275-05:00
+Thread 1 cannot allocate new log, sequence 7
+Checkpoint not complete
+  Current log# 3 seq# 6 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo03a.log
+  Current log# 3 seq# 6 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo03b.log
+  Current log# 3 seq# 6 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo03c.log
+2022-09-10T07:53:59.076613-05:00
+Thread 1 advanced to log sequence 7 (LGWR switch)
+  Current log# 1 seq# 7 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo01a.log
+  Current log# 1 seq# 7 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo01b.log
+  Current log# 1 seq# 7 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo01c.log
+2022-09-10T07:54:26.832635-05:00
+Create Relation IPS_PACKAGE_UNPACK_HISTORY
+2022-09-10T07:55:03.022494-05:00
+Thread 1 cannot allocate new log, sequence 8
+Checkpoint not complete
+  Current log# 1 seq# 7 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo01a.log
+  Current log# 1 seq# 7 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo01b.log
+  Current log# 1 seq# 7 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo01c.log
+2022-09-10T07:55:06.079128-05:00
+Thread 1 advanced to log sequence 8 (LGWR switch)
+  Current log# 2 seq# 8 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo02a.log
+  Current log# 2 seq# 8 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo02b.log
+  Current log# 2 seq# 8 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo02c.log
+2022-09-10T07:55:42.298576-05:00
+Thread 1 cannot allocate new log, sequence 9
+Checkpoint not complete
+  Current log# 2 seq# 8 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo02a.log
+  Current log# 2 seq# 8 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo02b.log
+  Current log# 2 seq# 8 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo02c.log
+2022-09-10T07:55:45.352650-05:00
+Thread 1 advanced to log sequence 9 (LGWR switch)
+  Current log# 3 seq# 9 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo03a.log
+  Current log# 3 seq# 9 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo03b.log
+  Current log# 3 seq# 9 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo03c.log
+2022-09-10T07:56:27.481725-05:00
+Thread 1 advanced to log sequence 10 (LGWR switch)
+  Current log# 1 seq# 10 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo01a.log
+  Current log# 1 seq# 10 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo01b.log
+  Current log# 1 seq# 10 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo01c.log
+2022-09-10T07:57:00.487361-05:00
+Thread 1 cannot allocate new log, sequence 11
+Checkpoint not complete
+  Current log# 1 seq# 10 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo01a.log
+  Current log# 1 seq# 10 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo01b.log
+  Current log# 1 seq# 10 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo01c.log
+2022-09-10T07:57:03.120100-05:00
+Thread 1 advanced to log sequence 11 (LGWR switch)
+  Current log# 2 seq# 11 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo02a.log
+  Current log# 2 seq# 11 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo02b.log
+  Current log# 2 seq# 11 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo02c.log
+2022-09-10T07:57:24.537738-05:00
+Thread 1 cannot allocate new log, sequence 12
+Checkpoint not complete
+  Current log# 2 seq# 11 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo02a.log
+  Current log# 2 seq# 11 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo02b.log
+  Current log# 2 seq# 11 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo02c.log
+2022-09-10T07:57:25.589764-05:00
+Thread 1 advanced to log sequence 12 (LGWR switch)
+  Current log# 3 seq# 12 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo03a.log
+  Current log# 3 seq# 12 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo03b.log
+  Current log# 3 seq# 12 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo03c.log
+2022-09-10T07:57:39.554463-05:00
+Thread 1 cannot allocate new log, sequence 13
+Checkpoint not complete
+  Current log# 3 seq# 12 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo03a.log
+  Current log# 3 seq# 12 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo03b.log
+  Current log# 3 seq# 12 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo03c.log
+2022-09-10T07:57:42.604956-05:00
+Thread 1 advanced to log sequence 13 (LGWR switch)
+  Current log# 1 seq# 13 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo01a.log
+  Current log# 1 seq# 13 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo01b.log
+  Current log# 1 seq# 13 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo01c.log
+2022-09-10T07:58:21.623422-05:00
+Thread 1 cannot allocate new log, sequence 14
+Checkpoint not complete
+  Current log# 1 seq# 13 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo01a.log
+  Current log# 1 seq# 13 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo01b.log
+  Current log# 1 seq# 13 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo01c.log
+2022-09-10T07:58:24.656600-05:00
+Thread 1 advanced to log sequence 14 (LGWR switch)
+  Current log# 2 seq# 14 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo02a.log
+  Current log# 2 seq# 14 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo02b.log
+  Current log# 2 seq# 14 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo02c.log
+2022-09-10T08:00:15.918947-05:00
+Thread 1 cannot allocate new log, sequence 15
+Checkpoint not complete
+  Current log# 2 seq# 14 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo02a.log
+  Current log# 2 seq# 14 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo02b.log
+  Current log# 2 seq# 14 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo02c.log
+2022-09-10T08:00:18.955967-05:00
+Thread 1 advanced to log sequence 15 (LGWR switch)
+  Current log# 3 seq# 15 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo03a.log
+  Current log# 3 seq# 15 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo03b.log
+  Current log# 3 seq# 15 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo03c.log
+2022-09-10T08:02:55.350180-05:00
+Thread 1 cannot allocate new log, sequence 16
+Checkpoint not complete
+  Current log# 3 seq# 15 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo03a.log
+  Current log# 3 seq# 15 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo03b.log
+  Current log# 3 seq# 15 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo03c.log
+2022-09-10T08:02:58.472736-05:00
+Thread 1 advanced to log sequence 16 (LGWR switch)
+  Current log# 1 seq# 16 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo01a.log
+  Current log# 1 seq# 16 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo01b.log
+  Current log# 1 seq# 16 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo01c.log
+2022-09-10T08:05:21.899066-05:00
+Memory Notification: Library Cache Object loaded into SGA
+Heap size 52584K exceeds notification threshold (51200K)
+Details in trace file /u01/app/oracle/diag/rdbms/knnbda2/knnbda2/trace/knnbda2_ora_3377.trc
+2022-09-10T08:05:21.899427-05:00
+KGL object name :grant read on ku$_partition_view to public
+2022-09-10T08:05:38.166996-05:00
+Memory Notification: Library Cache Object loaded into SGA
+Heap size 51977K exceeds notification threshold (51200K)
+Details in trace file /u01/app/oracle/diag/rdbms/knnbda2/knnbda2/trace/knnbda2_ora_3377.trc
+2022-09-10T08:05:38.167061-05:00
+KGL object name :grant read on ku$_subpartition_view to public
+2022-09-10T08:06:01.881754-05:00
+Thread 1 advanced to log sequence 17 (LGWR switch)
+  Current log# 2 seq# 17 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo02a.log
+  Current log# 2 seq# 17 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo02b.log
+  Current log# 2 seq# 17 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo02c.log
+2022-09-10T08:06:50.239656-05:00
+Thread 1 cannot allocate new log, sequence 18
+Checkpoint not complete
+  Current log# 2 seq# 17 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo02a.log
+  Current log# 2 seq# 17 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo02b.log
+  Current log# 2 seq# 17 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo02c.log
+2022-09-10T08:06:53.270263-05:00
+Thread 1 advanced to log sequence 18 (LGWR switch)
+  Current log# 3 seq# 18 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo03a.log
+  Current log# 3 seq# 18 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo03b.log
+  Current log# 3 seq# 18 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo03c.log
+2022-09-10T08:07:59.486764-05:00
+Thread 1 cannot allocate new log, sequence 19
+Checkpoint not complete
+  Current log# 3 seq# 18 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo03a.log
+  Current log# 3 seq# 18 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo03b.log
+  Current log# 3 seq# 18 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo03c.log
+2022-09-10T08:08:02.594218-05:00
+Thread 1 advanced to log sequence 19 (LGWR switch)
+  Current log# 1 seq# 19 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo01a.log
+  Current log# 1 seq# 19 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo01b.log
+  Current log# 1 seq# 19 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo01c.log
+2022-09-10T08:08:59.769869-05:00
+Thread 1 cannot allocate new log, sequence 20
+Checkpoint not complete
+  Current log# 1 seq# 19 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo01a.log
+  Current log# 1 seq# 19 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo01b.log
+  Current log# 1 seq# 19 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo01c.log
+2022-09-10T08:09:02.774494-05:00
+Thread 1 cannot allocate new log, sequence 20
+Private strand flush not complete
+  Current log# 1 seq# 19 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo01a.log
+  Current log# 1 seq# 19 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo01b.log
+  Current log# 1 seq# 19 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo01c.log
+2022-09-10T08:09:05.796134-05:00
+Thread 1 advanced to log sequence 20 (LGWR switch)
+  Current log# 2 seq# 20 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo02a.log
+  Current log# 2 seq# 20 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo02b.log
+  Current log# 2 seq# 20 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo02c.log
+2022-09-10T08:09:41.814394-05:00
+Thread 1 cannot allocate new log, sequence 21
+Checkpoint not complete
+  Current log# 2 seq# 20 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo02a.log
+  Current log# 2 seq# 20 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo02b.log
+  Current log# 2 seq# 20 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo02c.log
+2022-09-10T08:09:44.856254-05:00
+Thread 1 advanced to log sequence 21 (LGWR switch)
+  Current log# 3 seq# 21 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo03a.log
+  Current log# 3 seq# 21 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo03b.log
+  Current log# 3 seq# 21 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo03c.log
+2022-09-10T08:10:15.925285-05:00
+Memory Notification: Library Cache Object loaded into SGA
+Heap size 52965K exceeds notification threshold (51200K)
+Details in trace file /u01/app/oracle/diag/rdbms/knnbda2/knnbda2/trace/knnbda2_ora_3377.trc
+2022-09-10T08:10:15.925493-05:00
+KGL object name :grant read on ku$_m_view_pfh_view to public
+2022-09-10T08:10:24.247287-05:00
+Memory Notification: Library Cache Object loaded into SGA
+Heap size 52926K exceeds notification threshold (51200K)
+Details in trace file /u01/app/oracle/diag/rdbms/knnbda2/knnbda2/trace/knnbda2_ora_3377.trc
+2022-09-10T08:10:24.247352-05:00
+KGL object name :grant read on ku$_zm_view_pfh_view to public
+2022-09-10T08:11:12.335544-05:00
+Memory Notification: Library Cache Object loaded into SGA
+Heap size 52922K exceeds notification threshold (51200K)
+Details in trace file /u01/app/oracle/diag/rdbms/knnbda2/knnbda2/trace/knnbda2_ora_3377.trc
+2022-09-10T08:11:12.335608-05:00
+KGL object name :grant read on ku$_m_zonemap_pfh_view to public
+2022-09-10T08:11:46.950659-05:00
+Shared IO Pool defaulting to 12MB. Trying to get it from Buffer Cache for process 3377.
+2022-09-10T08:12:39.335353-05:00
+Thread 1 cannot allocate new log, sequence 22
+Private strand flush not complete
+  Current log# 3 seq# 21 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo03a.log
+  Current log# 3 seq# 21 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo03b.log
+  Current log# 3 seq# 21 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo03c.log
+2022-09-10T08:12:42.369572-05:00
+Thread 1 advanced to log sequence 22 (LGWR switch)
+  Current log# 1 seq# 22 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo01a.log
+  Current log# 1 seq# 22 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo01b.log
+  Current log# 1 seq# 22 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo01c.log
+2022-09-10T08:12:44.519965-05:00
+TABLE SYS.WRI$_OPTSTAT_HISTHEAD_HISTORY: ADDED INTERVAL PARTITION SYS_P201 (44813) VALUES LESS THAN (TO_DATE(' 2022-09-11 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+2022-09-10T08:12:54.559142-05:00
+Unable to obtain current patch information due to error: 4067, ORA-04067: not executed, package body "SYS.DBMS_QOPATCH" does not exist
+ORA-06508: PL/SQL: could not find program unit being called: "SYS.DBMS_QOPATCH"
+ORA-06512: at line 1
+
+===========================================================
+Dumping current patch information
+===========================================================
+Unable to obtain current patch information due to error: 4067
+===========================================================
+2022-09-10T08:13:03.886497-05:00
+TABLE SYS.WRI$_OPTSTAT_HISTGRM_HISTORY: ADDED INTERVAL PARTITION SYS_P221 (44813) VALUES LESS THAN (TO_DATE(' 2022-09-11 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+2022-09-10T08:13:10.233768-05:00
+TABLE SYS.WRP$_REPORTS: ADDED INTERVAL PARTITION SYS_P241 (4636) VALUES LESS THAN (TO_DATE(' 2022-09-11 01:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+TABLE SYS.WRP$_REPORTS_DETAILS: ADDED INTERVAL PARTITION SYS_P242 (4636) VALUES LESS THAN (TO_DATE(' 2022-09-11 01:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+TABLE SYS.WRP$_REPORTS_TIME_BANDS: ADDED INTERVAL PARTITION SYS_P245 (4635) VALUES LESS THAN (TO_DATE(' 2022-09-10 01:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+2022-09-10T08:13:33.564018-05:00
+Thread 1 advanced to log sequence 23 (LGWR switch)
+  Current log# 2 seq# 23 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo02a.log
+  Current log# 2 seq# 23 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo02b.log
+  Current log# 2 seq# 23 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo02c.log
+2022-09-10T08:14:09.587604-05:00
+Thread 1 cannot allocate new log, sequence 24
+Checkpoint not complete
+  Current log# 2 seq# 23 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo02a.log
+  Current log# 2 seq# 23 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo02b.log
+  Current log# 2 seq# 23 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo02c.log
+2022-09-10T08:14:12.618580-05:00
+Thread 1 advanced to log sequence 24 (LGWR switch)
+  Current log# 3 seq# 24 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo03a.log
+  Current log# 3 seq# 24 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo03b.log
+  Current log# 3 seq# 24 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo03c.log
+2022-09-10T08:14:30.116431-05:00
+SERVER COMPONENT id=CATPROC: status=LOADED, version=19.3.0.0.0, timestamp=2022-09-10 08:14:30
+2022-09-10T08:14:31.462522-05:00
+ALTER SYSTEM SET db_securefile='NEVER' SCOPE=BOTH;
+2022-09-10T08:14:31.485189-05:00
+ALTER SYSTEM SET db_securefile='PREFERRED' SCOPE=BOTH;
+2022-09-10T08:14:45.679065-05:00
+Thread 1 cannot allocate new log, sequence 25
+Checkpoint not complete
+  Current log# 3 seq# 24 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo03a.log
+  Current log# 3 seq# 24 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo03b.log
+  Current log# 3 seq# 24 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo03c.log
+2022-09-10T08:14:48.779909-05:00
+Thread 1 advanced to log sequence 25 (LGWR switch)
+  Current log# 1 seq# 25 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo01a.log
+  Current log# 1 seq# 25 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo01b.log
+  Current log# 1 seq# 25 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo01c.log
+2022-09-10T08:14:58.566994-05:00
+
+XDB installed.
+
+XDB initialized.
+2022-09-10T08:16:22.209793-05:00
+Memory Notification: Library Cache Object loaded into SGA
+Heap size 54519K exceeds notification threshold (51200K)
+Details in trace file /u01/app/oracle/diag/rdbms/knnbda2/knnbda2/trace/knnbda2_ora_3377.trc
+2022-09-10T08:16:22.210150-05:00
+KGL object name :ALTER VIEW "KU$_PARTITION_VIEW" COMPILE
+2022-09-10T08:16:32.065731-05:00
+Memory Notification: Library Cache Object loaded into SGA
+Heap size 53921K exceeds notification threshold (51200K)
+Details in trace file /u01/app/oracle/diag/rdbms/knnbda2/knnbda2/trace/knnbda2_ora_3377.trc
+2022-09-10T08:16:32.065868-05:00
+KGL object name :ALTER VIEW "KU$_SUBPARTITION_VIEW" COMPILE
+2022-09-10T08:17:04.159260-05:00
+Thread 1 advanced to log sequence 26 (LGWR switch)
+  Current log# 2 seq# 26 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo02a.log
+  Current log# 2 seq# 26 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo02b.log
+  Current log# 2 seq# 26 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo02c.log
+2022-09-10T08:17:43.982805-05:00
+Memory Notification: Library Cache Object loaded into SGA
+Heap size 55068K exceeds notification threshold (51200K)
+Details in trace file /u01/app/oracle/diag/rdbms/knnbda2/knnbda2/trace/knnbda2_ora_3377.trc
+2022-09-10T08:17:43.982875-05:00
+KGL object name :ALTER VIEW "KU$_M_VIEW_PFH_VIEW" COMPILE
+2022-09-10T08:17:55.360379-05:00
+Memory Notification: Library Cache Object loaded into SGA
+Heap size 55000K exceeds notification threshold (51200K)
+Details in trace file /u01/app/oracle/diag/rdbms/knnbda2/knnbda2/trace/knnbda2_ora_3377.trc
+2022-09-10T08:17:55.360453-05:00
+KGL object name :ALTER VIEW "KU$_ZM_VIEW_PFH_VIEW" COMPILE
+2022-09-10T08:18:22.195360-05:00
+Memory Notification: Library Cache Object loaded into SGA
+Heap size 52758K exceeds notification threshold (51200K)
+Details in trace file /u01/app/oracle/diag/rdbms/knnbda2/knnbda2/trace/knnbda2_ora_3377.trc
+2022-09-10T08:18:22.195424-05:00
+KGL object name :ALTER VIEW "KU$_M_VIEW_PIOT_VIEW" COMPILE
+2022-09-10T08:18:31.533879-05:00
+Memory Notification: Library Cache Object loaded into SGA
+Heap size 52687K exceeds notification threshold (51200K)
+Details in trace file /u01/app/oracle/diag/rdbms/knnbda2/knnbda2/trace/knnbda2_ora_3377.trc
+2022-09-10T08:18:31.533948-05:00
+KGL object name :ALTER VIEW "KU$_ZM_VIEW_PIOT_VIEW" COMPILE
+2022-09-10T08:18:49.762744-05:00
+Memory Notification: Library Cache Object loaded into SGA
+Heap size 54997K exceeds notification threshold (51200K)
+Details in trace file /u01/app/oracle/diag/rdbms/knnbda2/knnbda2/trace/knnbda2_ora_3377.trc
+2022-09-10T08:18:49.762803-05:00
+KGL object name :ALTER VIEW "KU$_M_ZONEMAP_PFH_VIEW" COMPILE
+2022-09-10T08:19:07.635500-05:00
+Memory Notification: Library Cache Object loaded into SGA
+Heap size 52687K exceeds notification threshold (51200K)
+Details in trace file /u01/app/oracle/diag/rdbms/knnbda2/knnbda2/trace/knnbda2_ora_3377.trc
+2022-09-10T08:19:07.635561-05:00
+KGL object name :ALTER VIEW "KU$_M_ZONEMAP_PIOT_VIEW" COMPILE
+2022-09-10T08:20:04.878541-05:00
+Thread 1 advanced to log sequence 27 (LGWR switch)
+  Current log# 3 seq# 27 mem# 0: /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo03a.log
+  Current log# 3 seq# 27 mem# 1: /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo03b.log
+  Current log# 3 seq# 27 mem# 2: /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo03c.log
+2022-09-10T08:20:10.481556-05:00
+SERVER COMPONENT id=UTLRP_BGN: timestamp=2022-09-10 08:20:10
+2022-09-10T08:20:18.228686-05:00
+SERVER COMPONENT id=UTLRP_END: timestamp=2022-09-10 08:20:18
+2022-09-10T08:35:05.415495-05:00
+JIT: pid 3716 requesting full stop
+2022-09-16T08:07:17.134347-05:00
+Heavy swapping observed on system
+2022-09-16T08:07:17.172860-05:00
+WARNING: Heavy swapping observed on system in last 5 mins.
+Heavy swapping can lead to timeouts, poor performance, and instance eviction.

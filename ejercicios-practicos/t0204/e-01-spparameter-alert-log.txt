@@ -1,0 +1,15 @@
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0.
+ORACLE_HOME:    /u01/app/oracle/product/19.3.0/dbhome_1
+System name:	Linux
+Node name:	pc-knn.fi.unam
+Release:	5.4.17-2136.310.7.el8uek.x86_64
+Version:	#2 SMP Tue Aug 9 17:49:20 PDT 2022
+Machine:	x86_64
+Using parameter settings in server-side spfile /u01/app/oracle/product/19.3.0/dbhome_1/dbs/spfileknnbda2.ora
+System parameters with non-default values:
+  memory_target            = 768M
+  control_files            = "/unam-bda/d01/app/oracle/oradata/KNNBDA2/control01.ctl"
+  control_files            = "/unam-bda/d02/app/oracle/oradata/KNNBDA2/control02.ctl"
+  control_files            = "/unam-bda/d03/app/oracle/oradata/KNNBDA2/control03.ctl"
+  db_name                  = "knnbda2"
