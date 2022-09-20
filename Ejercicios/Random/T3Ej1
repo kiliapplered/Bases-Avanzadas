@@ -1,0 +1,168 @@
+//Terminal 1
+[karla@pc-knn ~]$ export ORACLE_SID=knnbda2
+[karla@pc-knn ~]$ echo $ORACLE_SID
+knnbda2
+[karla@pc-knn ~]$ 
+[karla@pc-knn ~]$ sqlplus sys as sysdba
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Sat Sep 17 09:13:24 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Enter password: 
+Last Successful login time: Sat Sep 17 2022 08:01:28 -05:00
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+
+sys@knnbda2> create user karla0301 identified by karla 
+  2  quota unlimited on users;
+
+User created.
+
+sys@knnbda2> grant create session, create table to karla0301;
+
+Grant succeeded.
+
+sys@knnbda2> startup 
+ORA-01081: cannot start already-running ORACLE - shut it down first
+sys@knnbda2> alter database close;
+alter database close
+*
+ERROR at line 1:
+ORA-01093: ALTER DATABASE CLOSE only permitted with no sessions connected
+
+
+sys@knnbda2> shutdown
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+sys@knnbda2> startup mount
+ORACLE instance started.
+
+Total System Global Area  805303360 bytes
+Fixed Size		    8901696 bytes
+Variable Size		  578813952 bytes
+Database Buffers	  209715200 bytes
+Redo Buffers		    7872512 bytes
+Database mounted.
+sys@knnbda2> alter database open;
+
+Database altered.
+
+sys@knnbda2> shutdown transactional
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+sys@knnbda2> startup
+ORACLE instance started.
+
+Total System Global Area  805303360 bytes
+Fixed Size		    8901696 bytes
+Variable Size		  578813952 bytes
+Database Buffers	  209715200 bytes
+Redo Buffers		    7872512 bytes
+Database mounted.
+Database opened.
+sys@knnbda2> shutdown immediate
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+sys@knnbda2> startup
+ORACLE instance started.
+
+Total System Global Area  805303360 bytes
+Fixed Size		    8901696 bytes
+Variable Size		  578813952 bytes
+Database Buffers	  209715200 bytes
+Redo Buffers		    7872512 bytes
+Database mounted.
+Database opened.
+sys@knnbda2> shutdown transactional
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+sys@knnbda2> 
+
+//Terminal 2
+[karla@pc-knn ~]$ export ORACLE_SID=knnbda2
+[karla@pc-knn ~]$ sqlplus
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Sat Sep 17 09:16:18 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Enter user-name: karla0301
+Enter password: 
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+
+karla0301@knnbda2> create table test(id number);
+
+Table created.
+
+karla0301@knnbda2> insert into test values(1);
+
+1 row created.
+
+karla0301@knnbda2> commit;
+
+Commit complete.
+
+karla0301@knnbda2> exit
+Disconnected from Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+[karla@pc-knn ~]$ sqlplus karla0301/karla
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Sat Sep 17 09:38:06 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Last Successful login time: Sat Sep 17 2022 09:16:26 -05:00
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+
+karla0301@knnbda2> create table test2(id number);
+
+Table created.
+
+karla0301@knnbda2> insert into test2 values(1);
+insert into test2 values(1)
+*
+ERROR at line 1:
+ORA-03135: connection lost contact
+Process ID: 9833
+Session ID: 30 Serial number: 61635
+
+
+karla0301@knnbda2> connect karla0301/karla
+Connected.
+karla0301@knnbda2> insert into test2 values(2);
+
+1 row created.
+
+karla0301@knnbda2> insert into test2 values(3);
+
+1 row created.
+
+karla0301@knnbda2> connect karla0301/karla
+ERROR:
+ORA-03113: end-of-file on communication channel
+Process ID: 0
+Session ID: 194 Serial number: 31580
+
+
+Connected.
+karla0301@knnbda2> select * from test2;
+
+no rows selected
+
+karla0301@knnbda2> 
