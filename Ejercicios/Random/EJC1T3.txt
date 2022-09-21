@@ -1,0 +1,244 @@
+[karla@pc-knn ~]$ export ORACLE_SID=knnbda2
+[karla@pc-knn ~]$ sqlplus sys as sysdba
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Tue Sep 20 19:11:50 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Enter password: 
+Connected to an idle instance.
+
+idle> create pfile '/tmp/pfile.txt/ from memory;
+create pfile '/tmp/pfile.txt/ from memory
+             *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+idle> create pfile '/tmp/pfile.txt/' from memory;
+create pfile '/tmp/pfile.txt/' from memory
+             *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+idle> create pfile '/tmp/pfile.txt' from memory;
+create pfile '/tmp/pfile.txt' from memory
+             *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+idle> create pfile='/tmp/pfile.txt' from memory;
+create pfile='/tmp/pfile.txt' from memory
+                                   *
+ERROR at line 1:
+ORA-00922: missing or invalid option
+
+
+idle> startup
+ORACLE instance started.
+
+Total System Global Area  805303360 bytes
+Fixed Size		    8901696 bytes
+Variable Size		  578813952 bytes
+Database Buffers	  209715200 bytes
+Redo Buffers		    7872512 bytes
+Database mounted.
+Database opened.
+idle> create pfile='/tmp/pfile.txt' from memory;
+
+File created.
+
+idle> create pfile='/tmp/pfile2.txt' from spfile;
+
+File created.
+
+idle> desc v$parameter
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NUM						    NUMBER
+ NAME						    VARCHAR2(80)
+ TYPE						    NUMBER
+ VALUE						    VARCHAR2(4000)
+ DISPLAY_VALUE					    VARCHAR2(4000)
+ DEFAULT_VALUE					    VARCHAR2(255)
+ ISDEFAULT					    VARCHAR2(9)
+ ISSES_MODIFIABLE				    VARCHAR2(5)
+ ISSYS_MODIFIABLE				    VARCHAR2(9)
+ ISPDB_MODIFIABLE				    VARCHAR2(5)
+ ISINSTANCE_MODIFIABLE				    VARCHAR2(5)
+ ISMODIFIED					    VARCHAR2(10)
+ ISADJUSTED					    VARCHAR2(5)
+ ISDEPRECATED					    VARCHAR2(5)
+ ISBASIC					    VARCHAR2(5)
+ DESCRIPTION					    VARCHAR2(255)
+ UPDATE_COMMENT 				    VARCHAR2(255)
+ HASH						    NUMBER
+ CON_ID 					    NUMBER
+
+idle> 
+idle> startup
+ORA-01081: cannot start already-running ORACLE - shut it down first
+idle> shutdown abort
+ORACLE instance shut down.
+idle> startup nomount
+ORACLE instance started.
+
+Total System Global Area  805303360 bytes
+Fixed Size		    8901696 bytes
+Variable Size		  578813952 bytes
+Database Buffers	  209715200 bytes
+Redo Buffers		    7872512 bytes
+idle> desc v$instance
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ INSTANCE_NUMBER				    NUMBER
+ INSTANCE_NAME					    VARCHAR2(16)
+ HOST_NAME					    VARCHAR2(64)
+ VERSION					    VARCHAR2(17)
+ VERSION_LEGACY 				    VARCHAR2(17)
+ VERSION_FULL					    VARCHAR2(17)
+ STARTUP_TIME					    DATE
+ STATUS 					    VARCHAR2(12)
+ PARALLEL					    VARCHAR2(3)
+ THREAD#					    NUMBER
+ ARCHIVER					    VARCHAR2(7)
+ LOG_SWITCH_WAIT				    VARCHAR2(15)
+ LOGINS 					    VARCHAR2(10)
+ SHUTDOWN_PENDING				    VARCHAR2(3)
+ DATABASE_STATUS				    VARCHAR2(17)
+ INSTANCE_ROLE					    VARCHAR2(18)
+ ACTIVE_STATE					    VARCHAR2(9)
+ BLOCKED					    VARCHAR2(3)
+ CON_ID 					    NUMBER
+ INSTANCE_MODE					    VARCHAR2(11)
+ EDITION					    VARCHAR2(7)
+ FAMILY 					    VARCHAR2(80)
+ DATABASE_TYPE					    VARCHAR2(15)
+
+idle> select instance_name, to_char(startup_time, "dd/mm/yyyy hh24:mi:ss"),
+  2  startup_time, status, database_status from v$instance;
+select instance_name, to_char(startup_time, "dd/mm/yyyy hh24:mi:ss"),
+                                            *
+ERROR at line 1:
+ORA-00904: "dd/mm/yyyy hh24:mi:ss": invalid identifier
+
+
+idle> edit
+Wrote file afiedt.buf
+
+  1  select instance_name, to_char(startup_time, "dd/mm/yyyy hh24:mi:ss"),
+  2* startup_time, status, database_status from v$instance
+idle> edit
+Wrote file afiedt.buf
+
+  1  select instance_name, to_char(startup_time, "dd/mm/yyyy hh24:mi:ss")startup_time,
+  2* status, database_status from v$instance
+idle> run
+  1  select instance_name, to_char(startup_time, "dd/mm/yyyy hh24:mi:ss")startup_time,
+  2* status, database_status from v$instance
+select instance_name, to_char(startup_time, "dd/mm/yyyy hh24:mi:ss")startup_time,
+                                            *
+ERROR at line 1:
+ORA-00904: "dd/mm/yyyy hh24:mi:ss": invalid identifier
+
+
+idle> edit
+Wrote file afiedt.buf
+
+  1  select instance_name, to_char(startup_time, 'dd/mm/yyyy hh24:mi:ss') startup_time,
+  2* status, database_status from v$instance
+idle> run
+  1  select instance_name, to_char(startup_time, 'dd/mm/yyyy hh24:mi:ss') startup_time,
+  2* status, database_status from v$instance
+
+INSTANCE_NAME
+------------------------------------------------
+STARTUP_TIME
+---------------------------------------------------------
+STATUS
+------------------------------------
+DATABASE_STATUS
+---------------------------------------------------
+knnbda2
+20/09/2022 19:20:15
+STARTED
+ACTIVE
+
+
+idle> alter database mount;
+
+Database altered.
+
+idle> run
+  1* alter database mount
+alter database mount
+*
+ERROR at line 1:
+ORA-01100: database already mounted
+
+
+idle> select instance_name, to_char(startup_time, 'dd/mm/yyyy hh24:mi:ss') startup_time,
+  2  status, database_status from v$instance;
+
+idle> select instance_name, to_char(startup_time, 'dd/mm/yyyy hh24:mi:ss') startup_time,
+  2  status, database_status from v$instance;
+
+INSTANCE_NAME	 STARTUP_TIME	     STATUS	  DATABASE_STATUS
+---------------- ------------------- ------------ -----------------
+knnbda2 	 20/09/2022 19:20:15 MOUNTED	  ACTIVE
+
+idle> show parameter undo_tablespace;
+
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+undo_tablespace 		     string
+idle> alter database open;
+
+Database altered.
+
+idle> show parameter undo_tablespace;
+
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+undo_tablespace 		     string	 UNDOTBS1
+idle> alter database close;
+
+Database altered.
+
+idle> shutdown immediate;
+ORA-01109: database not open
+
+
+Database dismounted.
+ORACLE instance shut down.
+idle> alter database open read only;
+alter database open read only
+*
+ERROR at line 1:
+ORA-01034: ORACLE not available
+Process ID: 0
+Session ID: 0 Serial number: 0
+
+
+idle> startup mount;
+ORACLE instance started.
+
+Total System Global Area  805303360 bytes
+Fixed Size		    8901696 bytes
+Variable Size		  578813952 bytes
+Database Buffers	  209715200 bytes
+Redo Buffers		    7872512 bytes
+Database mounted.
+idle> alter database open read only;
+
+Database altered.
+
+idle> shutdown abort;
+ORACLE instance shut down.
+idle> exit
+Disconnected from Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+[karla@pc-knn ~]$ 
