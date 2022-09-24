@@ -46,7 +46,7 @@ create table karla0401.t02_sga_dynamic_components as(
 Prompt Creando tabla t03_sga_max_dynamic_component
 create table karla0401.t03_sga_max_dynamic_component(
   component_name varchar2(64),
-  current_size_mb number(10,2),
+  current_size_mb number(10,2)
 );
 
 Prompt Insertando datos en la tabla t03_sga_max_dynamic_component
@@ -62,7 +62,7 @@ insert into karla0401.t03_sga_max_dynamic_component values(
 Prompt Creando tabla t04_sga_min_dynamic_component
 create table karla0401.t04_sga_min_dynamic_component(
   component_name varchar2(64),
-  current_size_mb number(10,2),
+  current_size_mb number(10,2)
 );
 
 Prompt Insertando datos en la tabla t04_sga_min_dynamic_component
@@ -86,31 +86,30 @@ create table karla0401.t05_sga_memory_info(
 Prompt Insertando datos en la tabla t05_sga_memory_info
 insert into karla0401.t05_sga_memory_info values (
   -- name
-  (select namefrom v$sgainfo where name='Maximum SGA Size')
+  (select name from v$sgainfo where name='Maximum SGA Size'),
   -- current_size_mb
   (select round(bytes/1024/1024) from v$sgainfo where name='Maximum SGA Size')
 );
 insert into karla0401.t05_sga_memory_info values (
   -- name
-  (select namefrom v$sgainfo where name='Free SGA Memory Available')
+  (select name from v$sgainfo where name='Free SGA Memory Available'),
   -- current_size_mb
   (select round(bytes/1024/1024) from v$sgainfo where name='Free SGA Memory Available')
 );
 
 Prompt Creando tabla t06_sga_resizeable_components e insertando datos
 create table karla0401.t06_sga_resizeable_components as (
-  select name from v$sgainfo
+  select name from v$sgainfo where resizeable='Yes'
 );
 
 Prompt Creando tabla t07_sga_resize_ops
-create table karla0104.t07_sga_resize_ops as(
+create table karla0401.t07_sga_resize_ops as(
   select component, oper_type, parameter, round((initial_size/1024/1024),2) as initial_size_mb,
   round((target_size/1024/1024),2) target_size_mb, round((final_size/1024/1024),2) final_size_mb,
   round((final_size-target_size/1024/1024),2) increment_mb, status, to_date(start_time, 'DD/MON/YYYY HH:MI:SS') start_time,
   to_date(end_time, 'DD/MON/YYYY HH:MI:SS') end_time from v$sga_resize_ops 
-  order by component asc, end_time asc
 );
 
-
+commit;
 
 whenever sqlerror continue none;
