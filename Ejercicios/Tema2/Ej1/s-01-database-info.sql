@@ -44,10 +44,10 @@ create table karla0201.database_info(
 );
 
 Prompt insercion de valores
-insert into karla0201.database_info(instance_name, db_domain, db_charset, sys_timestamp, timezone_offset, 
-  db_block_size_bytes, os_block_size_bytes, redo_block_size_bytes, total_components, total_components_mb,
-  max_component_name, max_component_desc, max_component_mb) 
-  values (
+insert into karla0201.database_info(instance_name, db_domain, db_charset, sys_timestamp, 
+  timezone_offset, db_block_size_bytes, os_block_size_bytes, redo_block_size_bytes, 
+  total_components, total_components_mb, max_component_name, max_component_desc, 
+  max_component_mb) values (
     --instance_name
     (select instance_name from v$instance),
     --db_domain
@@ -75,8 +75,9 @@ insert into karla0201.database_info(instance_name, db_domain, db_charset, sys_ti
     (select occupant_desc from v$sysaux_occupants where space_usage_kbytes=
       (select max(space_usage_kbytes) from v$sysaux_occupants)),
     --max_component_mb
-    (select round((space_usage_kbytes/1024), 2) from v$sysaux_occupants where space_usage_kbytes=
-      (select max(space_usage_kbytes) from v$sysaux_occupants))
+    (select round((space_usage_kbytes/1024), 2) 
+      from v$sysaux_occupants where space_usage_kbytes=
+        (select max(space_usage_kbytes) from v$sysaux_occupants))
 );
 
 Prompt mostrando datos parte 1

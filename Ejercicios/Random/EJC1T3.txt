@@ -8,35 +8,6 @@ Copyright (c) 1982, 2019, Oracle.  All rights reserved.
 
 Enter password: 
 Connected to an idle instance.
-
-idle> create pfile '/tmp/pfile.txt/ from memory;
-create pfile '/tmp/pfile.txt/ from memory
-             *
-ERROR at line 1:
-ORA-00923: FROM keyword not found where expected
-
-
-idle> create pfile '/tmp/pfile.txt/' from memory;
-create pfile '/tmp/pfile.txt/' from memory
-             *
-ERROR at line 1:
-ORA-00923: FROM keyword not found where expected
-
-
-idle> create pfile '/tmp/pfile.txt' from memory;
-create pfile '/tmp/pfile.txt' from memory
-             *
-ERROR at line 1:
-ORA-00923: FROM keyword not found where expected
-
-
-idle> create pfile='/tmp/pfile.txt' from memory;
-create pfile='/tmp/pfile.txt' from memory
-                                   *
-ERROR at line 1:
-ORA-00922: missing or invalid option
-
-
 idle> startup
 ORACLE instance started.
 
@@ -79,6 +50,7 @@ idle> desc v$parameter
  CON_ID 					    NUMBER
 
 idle> 
+
 idle> startup
 ORA-01081: cannot start already-running ORACLE - shut it down first
 idle> shutdown abort
@@ -118,36 +90,6 @@ idle> desc v$instance
  FAMILY 					    VARCHAR2(80)
  DATABASE_TYPE					    VARCHAR2(15)
 
-idle> select instance_name, to_char(startup_time, "dd/mm/yyyy hh24:mi:ss"),
-  2  startup_time, status, database_status from v$instance;
-select instance_name, to_char(startup_time, "dd/mm/yyyy hh24:mi:ss"),
-                                            *
-ERROR at line 1:
-ORA-00904: "dd/mm/yyyy hh24:mi:ss": invalid identifier
-
-
-idle> edit
-Wrote file afiedt.buf
-
-  1  select instance_name, to_char(startup_time, "dd/mm/yyyy hh24:mi:ss"),
-  2* startup_time, status, database_status from v$instance
-idle> edit
-Wrote file afiedt.buf
-
-  1  select instance_name, to_char(startup_time, "dd/mm/yyyy hh24:mi:ss")startup_time,
-  2* status, database_status from v$instance
-idle> run
-  1  select instance_name, to_char(startup_time, "dd/mm/yyyy hh24:mi:ss")startup_time,
-  2* status, database_status from v$instance
-select instance_name, to_char(startup_time, "dd/mm/yyyy hh24:mi:ss")startup_time,
-                                            *
-ERROR at line 1:
-ORA-00904: "dd/mm/yyyy hh24:mi:ss": invalid identifier
-
-
-idle> edit
-Wrote file afiedt.buf
-
   1  select instance_name, to_char(startup_time, 'dd/mm/yyyy hh24:mi:ss') startup_time,
   2* status, database_status from v$instance
 idle> run
@@ -171,14 +113,6 @@ ACTIVE
 idle> alter database mount;
 
 Database altered.
-
-idle> run
-  1* alter database mount
-alter database mount
-*
-ERROR at line 1:
-ORA-01100: database already mounted
-
 
 idle> select instance_name, to_char(startup_time, 'dd/mm/yyyy hh24:mi:ss') startup_time,
   2  status, database_status from v$instance;
