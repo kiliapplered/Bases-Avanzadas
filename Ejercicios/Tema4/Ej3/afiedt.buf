@@ -1,0 +1,3 @@
+select count(*) as shared_pool_component_total
+      from v$sgastat
+      where pool='shared pool'
