@@ -8,7 +8,7 @@ Prompt Conectando como sysdba
 connect sys/system2 as sysdba
 
 prompt Creando tabla t01_db_buffer_cache
-create table froylan0402.t01_db_buffer_cache as(
+create table karla0402.t01_db_buffer_cache as(
   (select block_size,current_size,buffers,
     target_buffers,prev_size,prev_buffers,
     0 default_pool_size
@@ -16,7 +16,7 @@ create table froylan0402.t01_db_buffer_cache as(
 );
 
 prompt Creando tabla t02_db_buffer_sysstats
-create table froylan0402.t02_db_buffer_sysstats as(
+create table karla0402.t02_db_buffer_sysstats as(
   select q1.db_blocks_gets_from_cache,
     q2.consistent_gets_from_cache,
     q3.physical_reads_cache,

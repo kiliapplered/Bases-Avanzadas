@@ -16,9 +16,9 @@ begin
   end if;
 end;
 /
-Prompt creando al usuario karla0401 y asignando privilegios
+Prompt creando al usuario karla0402 y asignando privilegios
 create user karla0402 identified by karla quota unlimited on users;
-grant create session, create table to karla0402;
+grant create session, create table, create sequence to karla0402;
 
 disconnect;
 

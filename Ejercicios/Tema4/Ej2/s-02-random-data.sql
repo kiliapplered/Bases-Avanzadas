@@ -3,7 +3,7 @@
 --@Descripción:    Script 3 del ejercicio 2 del Tema 4: Consultas de DB buffer
 
 prompt Iniciando sesion con usuario karla0402
-connect karla0402/cn
+connect karla0402/karla
 
 Prompt creando tabla t03_random_data
 create table t03_random_data(
