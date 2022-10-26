@@ -1,16 +1,6 @@
---@Autor: 	   Najera Noyola Karla Andrea
---@Fecha creación: 25/10/2022
---@Descripción:    Script 4 del ejercicio 3 del Tema 4: Tabla con estadísticas de la PGA
-
--- Inciso A
-prompt Iniciando sesion como sysdba
-connect sys/system2 as sysdba
-
--- Inciso B
-create table karla0403.t04_pga_stats as(
-  select * from (
+select * from (
   -- max_pga_mb
-  select trunc(value/1024/1024,2) max_pga_mb
+  (select trunc(value/1024/1024,2) max_pga_mb
     from v$pgastat
     where name='maximum PGA allocated'),
   --pga_target_param_calc_mb
@@ -38,10 +28,6 @@ create table karla0403.t04_pga_stats as(
     from v$pgastat
     where name='process count'),
   --pga_cache_hit_percentage
-  (select value pga_cache_hit_percentage
+  (select value pga_process_count
     from v$pgastat
-    where name='cache hit percentage')
-);
-
-set linesize window
-select * from karla0403.t04_pga_stats;
+    where name='process count')n

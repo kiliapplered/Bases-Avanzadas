@@ -12,7 +12,7 @@ declare
 begin
   select count(*) into v_count from all_users where username=v_username;
   if v_count >0 then
-    execute immediate 'drop user '||v_username|| ' cascade';
+    execute immediate 'drop user '||v_username || ' cascade';
   end if;
 end;
 /

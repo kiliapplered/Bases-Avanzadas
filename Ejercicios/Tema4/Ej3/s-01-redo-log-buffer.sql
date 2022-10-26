@@ -9,13 +9,16 @@ connect sys/system2 as sysdba
 -- Inciso B
 Prompt Creando tabla karla0403.t01_redo_log_buffer
 create table karla0403.t01_redo_log_buffer as (
+  select
   --redo_buffer_size_param_mb 
-  (select value/1024/1024 as redo_buffer_size_param_mb 
-    from v$parameter where name='log_buffer'),
+  (select value/1024/1024
+    from v$parameter where name='log_buffer') redo_buffer_size_param_mb ,
   --redo_buffer_sga_info_mb 
-  (select bytes/1024/1024 as redo_buffer_sga_info_mb 
-    from v$sgainfo where name='Redo Buffers'),
+  (select bytes/1024/1024
+    from v$sgainfo where name='Redo Buffers') redo_buffer_sga_info_mb ,
   --resizeable
-  (select resizeable from v$sgainfo where name='Redo Buffers'),
-
+  (select resizeable from v$sgainfo where name='Redo Buffers') resizeable
+  from v$sgainfo where name='Redo Buffers'
 );
+
+select * from karla0403.t01_redo_log_buffer;

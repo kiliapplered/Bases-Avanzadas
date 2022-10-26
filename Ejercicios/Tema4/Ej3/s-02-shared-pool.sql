@@ -9,27 +9,28 @@ connect sys/system2 as sysdba
 -- Inciso B
 Prompt Creando tabla karla0403.t02_shared_pool
 create table karla0403.t02_shared_pool as (
+  select 
   --shared_pool_param_mb
-  (select value/1024/1024 as shared_pool_param_mb
-    from v$parameter where name='shared_pool_size'),
+  (select value/1024/1024 
+    from v$parameter where name='shared_pool_size') shared_pool_param_mb,
   --shared_pool_sga_info_mb
-  (select bytes/1024/1024 as shared_pool_sga_info_mb
-    from v$sgainfo where name='Shared Pool Size'),
+  (select bytes/1024/1024
+    from v$sgainfo where name='Shared Pool Size') shared_pool_sga_info_mb,
   --resizeable
   (select resizeable
-    from v$sgainfo where name='Shared Pool Size'),
+    from v$sgainfo where name='Shared Pool Size') resizeable,
   --shared_pool_component_total
-  (select count(*) as shared_pool_component_total
-    from v$sgastat where pool='shared pool'),
+  (select count(*) 
+    from v$sgastat where pool='shared pool') shared_pool_component_total,
   --shared_pool_free_memory
-  (select bytes/1024/1024 as shared_pool_free_memory
-    from v$sgastat where name='free memory' and pool='shared pool')
+  bytes/1024/1024 as shared_pool_free_memory
+    from v$sgastat where name='free memory' and pool='shared pool' 
 );
 
 -- Inciso C
 Prompt Creando tabla karla0403.t03_library_cache_hist
 create table karla0403.t03_library_cache_hist as (
-  select 1 as id, reloads, invalidations, pins, pinhits, pinhitradio
+  select 1 as id, reloads, invalidations, pins, pinhits, pinhitratio
   from v$librarycache where namespace='SQL AREA'
 );
 
