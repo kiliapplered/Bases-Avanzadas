@@ -9,8 +9,8 @@ connect sys/system2 as sysdba
 -- Inciso B
 Prompt Modificando parámetros
 alter system set memory_target=0 scope=memory;
-alter system set sga_target=372M scope=memory;
-alter system set pga_aggregate_target=396M scope=memory;
+alter system set sga_target=488M scope=memory;
+alter system set pga_aggregate_target=280M scope=memory;
 
 --Inciso C
 exec dbms_session.sleep(5)
