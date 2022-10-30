@@ -11,12 +11,12 @@
 --
 -- Nombre del alumno empleado como prefijo para crear usuarios en la BD
 --
-define p_nombre='jorge'
+define p_nombre='karla'
 
 --
 -- Password del usuario creado en este ejercicio práctico.
 --
-define p_usr_password='jorge'
+define p_usr_password='karla'
 
 --
 -- Password del usuario sys

@@ -22,6 +22,7 @@ create sequence seq_t03_random_data;
 
 Prompt Cargando registros aleatorios
 --Observar el uso del paquete dbms_random empleado para generar valores aleatorios
+set timing on
 begin
   for v_index in 1..80000 loop
     insert into t03_random_data(
@@ -40,6 +41,7 @@ begin
   end loop;
 end;
 /
+set timing off
 --no olvidar hacer commit
 commit;
 
@@ -50,11 +52,11 @@ create or replace procedure spv_query_random_data is
     select *
     from t03_random_data
     order by id;
-v_caracter char(1) := '<poner aquí el character a buscar>';
-v_total number;
-v_count number;
-v_rows number;
-  begin
+  v_caracter char(1) := 'k';
+  v_total number;
+  v_count number;
+  v_rows number;
+begin
     v_total := 0;
     v_rows :=0;
     for r in cur_consulta loop

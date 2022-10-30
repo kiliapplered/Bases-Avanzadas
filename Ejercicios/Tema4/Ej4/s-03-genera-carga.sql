@@ -16,6 +16,7 @@ Prompt Iniciando sesión con usuario karla0404
 connect karla0404/karla
 
 -- Inciso D
+Prompt Ejecutando procedimiento
 set timing on
 exec spv_query_random_data
 set timing off

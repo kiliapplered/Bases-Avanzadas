@@ -4,7 +4,7 @@
 
 -- Inciso A
 Prompt Iniciando sesión como sysdba
-connect sys/system2 as sysdb
+connect sys/system2 as sysdba
 
 -- Inciso B
 Prompt Modificando parámetros
