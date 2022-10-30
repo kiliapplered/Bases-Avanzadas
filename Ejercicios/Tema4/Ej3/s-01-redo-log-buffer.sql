@@ -14,11 +14,10 @@ create table karla0403.t01_redo_log_buffer as (
   (select value/1024/1024
     from v$parameter where name='log_buffer') redo_buffer_size_param_mb ,
   --redo_buffer_sga_info_mb 
-  (select bytes/1024/1024
-    from v$sgainfo where name='Redo Buffers') redo_buffer_sga_info_mb ,
+  bytes/1024/1024 redo_buffer_sga_info_mb,
   --resizeable
-  (select resizeable from v$sgainfo where name='Redo Buffers') resizeable
+  resizeable 
   from v$sgainfo where name='Redo Buffers'
 );
 
-select * from karla0403.t01_redo_log_buffer;
+--select * from karla0403.t01_redo_log_buffer;
