@@ -11,7 +11,7 @@ Prompt Modificando parámetros
 alter system set memory_target=0 scope=memory;
 alter system set sga_target=0 scope=memory; 
 
-alter system set db_cache_size=160M scope=memory; 
+alter system set db_cache_size=180M scope=memory; 
 alter system set shared_pool_size=224M scope=memory; 
 alter system set large_pool_size=4M scope=memory; 
 alter system set java_pool_size=4M scope=memory; 

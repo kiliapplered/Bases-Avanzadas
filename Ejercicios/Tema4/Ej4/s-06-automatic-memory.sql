@@ -12,6 +12,11 @@ alter system set memory_target=768M scope=memory;
 alter system set sga_target=0 scope=memory;
 alter system set pga_aggregate_target=0 scope=memory;
 
+alter system set db_cache_size=0 scope=memory; 
+alter system set shared_pool_size=0 scope=memory; 
+alter system set large_pool_size=0 scope=memory; 
+alter system set java_pool_size=0 scope=memory; 
+
 --Inciso C
 exec dbms_session.sleep(5)
 
