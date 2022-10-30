@@ -4,7 +4,7 @@
 
 -- Inciso A
 Prompt Iniciando sesión como sysdba
-connect sys/system2 as sysdb
+connect sys/system2 as sysdba
 
 -- Inciso B
 Prompt Modificando parámetros
@@ -39,4 +39,4 @@ Prompt Insertando registro a t02_memory_param_values con id=2
 commit;
 
 Prompt Contenido de la tabla t02_memory_param_values
-select * from t02_memory_param_values order by sample_date ASC;
+select * from karla0404.t02_memory_param_values order by sample_date ASC;
