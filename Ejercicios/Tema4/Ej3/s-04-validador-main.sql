@@ -11,7 +11,7 @@
 --
 -- Nombre del alumno empleado como prefijo para crear usuarios en la BD
 --
-define p_nombre='karla'
+define p_nombre='jorge'
 
 --
 -- Password del usuario sys
