@@ -53,28 +53,16 @@ Prompt Insertando datos en la tabla t03_sga_max_dynamic_component
 insert into karla0401.t03_sga_max_dynamic_component values(
   -- component_name
   (select component from v$sga_dynamic_components
-  where current_size=(select max(current_size) from v$sga_dynamic_components)),
+  where current_size=(select max(current_size) current_size_mb from v$sga_dynamic_components)),
   -- current_size_mb
   (select round((current_size/1024/1024),2) from v$sga_dynamic_components
-  where current_size=(select max(current_size) from v$sga_dynamic_components))
+  where current_size=(select max(current_size) current_size_mb from v$sga_dynamic_components))
 );
 
 Prompt Creando tabla t04_sga_min_dynamic_component
-create table karla0401.t04_sga_min_dynamic_component(
-  component_name varchar2(64),
-  current_size_mb number(10,2)
-);
-
-Prompt Insertando datos en la tabla t04_sga_min_dynamic_component
-insert into karla0401.t04_sga_min_dynamic_component values(
-  -- component_name
-  (select component from v$sga_dynamic_components
-  where current_size=(select min(current_size) from v$sga_dynamic_components)
-  and current_size!=0),
-  -- current_size_mb
-  (select round((current_size/1024/1024),2) from v$sga_dynamic_components
-  where current_size=(select min(current_size) from v$sga_dynamic_components)
-  and current_size!=0)
+create table karla0401.t04_sga_min_dynamic_component as (
+  select component, round((current_size/1024/1024),2) current_size_mb from v$sga_dynamic_components
+  where current_size=(select min(current_size) from v$sga_dynamic_components where current_size!=0)
 );
 
 Prompt Creando tabla t05_sga_memory_info
