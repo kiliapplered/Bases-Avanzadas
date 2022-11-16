@@ -10,9 +10,9 @@ connect sys/system2 as sysdba
 prompt Creando la tabla karla0501.t01_session_data y agregando un registro
 alter session set nls_date_format='dd/mm/yyyy hh24:mi:ss';
 create table karla0501.t01_session_data as (
-  select 
+  select
   -- id
-  1 as id,
+  1 id,
   --sid
   sid,
   --logon_time
@@ -33,7 +33,7 @@ create table karla0501.t01_session_data as (
   process,
   --port
   port
-  from v$session where username='SYS' and type='USER'
+  from v$session where username='SYS' and type='USER' and status='ACTIVE'
 );
 
 -- Inciso C
@@ -48,10 +48,11 @@ connect sys@knnbda2_dedicated/system2 as sysdba
 
 -- Inciso E
 prompt Creando un nuevo registro en la tabla karla0501.t01_session_data
-insert into karla0501.t01_session_data values(
+alter session set nls_date_format='dd/mm/yyyy hh24:mi:ss';
+insert into karla0501.t01_session_data
   select 
   -- id
-  2 as id,
+  2,
   --sid
   sid,
   --logon_time
@@ -72,8 +73,7 @@ insert into karla0501.t01_session_data values(
   process,
   --port
   port
-  from v$session where username='SYS' and type='USER'
-);
+  from v$session where username='SYS' and type='USER' and status='ACTIVE';
 
 -- Inciso F
 prompt Confirmando la inserción de los datos con id=2
@@ -87,10 +87,11 @@ connect sys@knnbda2_shared/system2 as sysdba
 
 -- Inciso H
 prompt Creando un nuevo registro en la tabla karla0501.t01_session_data
-insert into karla0501.t01_session_data values(
+alter session set nls_date_format='dd/mm/yyyy hh24:mi:ss';
+insert into karla0501.t01_session_data
   select 
   -- id
-  3 as id,
+  3,
   --sid
   sid,
   --logon_time
@@ -111,8 +112,7 @@ insert into karla0501.t01_session_data values(
   process,
   --port
   port
-  from v$session where username='SYS' and type='USER'
-);
+  from v$session where username='SYS' and type='USER' and status='ACTIVE';
 
 -- Inciso F
 prompt Confirmando la inserción de los datos con id=3

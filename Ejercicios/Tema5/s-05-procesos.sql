@@ -8,10 +8,10 @@ connect sys@knnbda2_pooled/system2 as sysdba
 
 -- Inciso B
 prompt Creando un nuevo registro en la tabla karla0501.t01_session_data
-insert into karla0501.t01_session_data values(
+insert into karla0501.t01_session_data
   select 
   -- id
-  4 as id,
+  4,
   --sid
   sid,
   --logon_time
@@ -32,8 +32,7 @@ insert into karla0501.t01_session_data values(
   process,
   --port
   port
-  from v$session where username='SYS' and type='USER'
-);
+  from v$session where username='SYS' and type='USER' and status='ACTIVE';
 
 -- Inciso C
 prompt Creando tabla karla0501.t07_foreground_process

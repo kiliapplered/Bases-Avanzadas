@@ -38,21 +38,24 @@ create table karla0501.t03_dispatcher as(
   --messages_mb
   trunc((bytes/1024/1024),2) messages_mb,
   --circuits_created
-  created as circuits_created,
+  created circuits_created,
   --idle_min
   trunc((idle/60),2) idle_min,
   --id
-  1 as id
+  1 id
   from v$dispatcher
 );
 
 -- Inciso D
+prompt Creando tabla karla0501.t04_shared_server
 create table karla0501.t04_shared_server as (
   select 
   --id
-  1 as id, 
+  1 id, 
   --name
   name,
+  --status
+  status,
   --messages
   messages,
   --messages_mb
@@ -67,6 +70,7 @@ create table karla0501.t04_shared_server as (
 );
 
 -- Inciso E
+prompt Creando tabla karla0501.t05_queue
 create table karla0501.t05_queue as(
   select 
   -- id
@@ -74,17 +78,18 @@ create table karla0501.t05_queue as(
   --queued
   queued,
   --wait
-  wait,
+  trunc(wait/60, 2) wait,
   --totalq
   totalq
   from v$queue 
 );
 
 -- Inciso F
+prompt Creando tabla karla0501.t06_virtual_circuit
 create table karla0501.t06_virtual_circuit as(
   select
   -- id 
-  1 as id,
+  1 id,
   -- circuit
   ci.circuit,
   --name
