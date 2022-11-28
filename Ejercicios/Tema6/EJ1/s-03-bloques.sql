@@ -98,6 +98,7 @@ exec get_space_usage_info(1);
 
 -- Inciso G
 Prompt eliminado todos los datos de la tabla t03_random_str
+truncate table t03_random_str;
 
 -- Inciso H
 Prompt Obteniendo datos de uso posterior a la creación de la tabla
