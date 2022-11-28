@@ -123,3 +123,4 @@ set linesize window
 column username format a30
 column osuser format a30
 select * from karla0501.t01_session_data;
+

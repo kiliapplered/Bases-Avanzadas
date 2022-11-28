@@ -4,7 +4,7 @@
 
 -- Inciso A
 prompt Iniciando sesion como sysdba
-connect sys/system2 as sysdba
+connect sys@knnbda2_shared/system2 as sysdba
 
 -- Inciso B
 prompt Creando tabla karla0501.t02_dispatcher_config
