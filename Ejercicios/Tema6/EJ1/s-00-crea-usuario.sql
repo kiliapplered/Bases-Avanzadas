@@ -1,5 +1,5 @@
 --@Autor: 	   Najera Noyola Karla Andrea
---@Fecha creación: 25/10/2022
+--@Fecha creación: 27/11/2022
 --@Descripción:    Script 1 del ejercicio 1 del Tema 6: Creación del usuario 0601
 
 whenever sqlerror exit rollback;
@@ -18,7 +18,7 @@ end;
 /
 Prompt creando al usuario karla0601 y asignando privilegios
 create user karla0601 identified by karla quota unlimited on users;
-grant create session, create table, create sequence to karla0601;
+grant create session, create table, create sequence, create procedure to karla0601;
 
 disconnect;
 

@@ -14,7 +14,7 @@ create table str_data(
   str     char(1024)
 )
 segment creation immediate
-pctfree=0;
+PCTFREE 0;
 
 -- Inciso C
 select lengthb(str), length(str) from str_data where str='a';
@@ -31,10 +31,12 @@ Prompt Dado que una extensión tiene 8 blqoues, 8*7=56 registros aproximadamente
 -- Inciso E
 Prompt Bloque anónimo para poblar la tabla con 56 registros
 declare
+  v_letter char(1);
 begin
+  v_letter:='a';
   for v_index in 1..56 loop
-  execute immediate 'insert into str_data values(:val_aleatorio)'
-  using dbms_random.string('a', 1024);
+  execute immediate 'insert into str_data values(:ph1)'
+    using v_letter;
   end loop;
   commit;
 end;
@@ -45,14 +47,13 @@ select * from user_extents where segment_name='STR_DATA';
 
 -- Inciso G
 Prompt Consultando los ROWIDs asignados
-selct rowid from str_data order by 1;
+select rowid from str_data order by 1;
 
 -- Inciso H
 create table t02_str_data_extents as(
   select substr(rowid, 1, 15) as codigo_bloque, count(*) total_registros
   from str_data
   group by substr(rowid, 1, 15)
-  order by codigo_bloque
 );
 
 whenever sqlerror continue none;

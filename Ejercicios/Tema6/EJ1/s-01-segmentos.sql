@@ -30,7 +30,7 @@ where segment_name like '%EMPLEADO%';
 --Inciso E
 Prompt Insertando un registro 
 insert into empleado 
-values (1, 'Karla Andrea Najera Noyola', 316324951, empty_blob);
+values (1, 'Karla Andrea Najera Noyola', 316324951, empty_blob());
 
 -- Inciso F
 Prompt Creando nuevo segmento de forma manual
@@ -40,7 +40,7 @@ alter table empleado allocate extent;
 create table t01_emp_segments as (
   select s.segment_name, s.segment_type, s.tablespace_name, (s.bytes/1024)segment_kbs, s.blocks, s.extents  
     from user_segments s
-    join user_lobs l on l.tablespace_name=s.tablespace_name 
+    left join user_lobs l on s.segment_name=l.segment_name or s.segment_name=l.index_name
   where s.segment_name like '%EMPLEADO%' or l.table_name='EMPLEADO'
 );
 
