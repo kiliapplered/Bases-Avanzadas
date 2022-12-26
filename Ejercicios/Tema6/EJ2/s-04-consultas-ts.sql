@@ -52,3 +52,6 @@ blocks
 from dba_users du
 left join dba_ts_quotas dtq on du.default_tablespace=dtq.tablespace_name
 where du.username='KARLA0401' and dtq.username='KARLA0401';
+
+
+whenever sqlerror continue none;
