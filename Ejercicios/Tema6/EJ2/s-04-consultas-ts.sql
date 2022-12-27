@@ -5,9 +5,10 @@
 whenever sqlerror exit rollback;
 
 Prompt Conectando como usuario sysdba
-connect sysdba/system2
+connect sys/system2 as sysdba
 
 -- Inciso A
+Prompt Consulta 1
 select 
   tablespace_name,
   block_size,
@@ -15,11 +16,11 @@ select
   next_extent, 
   max_size,
   status,
-  contents,
   logging
 from dba_tablespaces;
 
 -- Inciso B
+Prompt Consulta 2
 select 
   tablespace_name,
   extent_management, 
@@ -29,29 +30,23 @@ select
 from dba_tablespaces;
 
 -- Inciso C
-select
-du.username,
-du.default_tablespace,
-du.temporary_tablespace,
-case dtq.max_bytes
-  when -1 then 'UNLIMITED'
-  else round(dtq.max_bytes/1024/1024, 2),
-round(bytes/1024/1024, 2) allocated_mb,
-blocks
-from dba_users du
-left join dba_ts_quotas dtq on du.default_tablespace=dtq.tablespace_name
-where du.username='KARLA0401' and dtq.username='KARLA0401';
-
-select
-du.username,
-du.default_tablespace,
-du.temporary_tablespace,
-'UNLIMITED' quota_mb,
-round(bytes/1024/1024, 2) allocated_mb,
-blocks
-from dba_users du
-left join dba_ts_quotas dtq on du.default_tablespace=dtq.tablespace_name
-where du.username='KARLA0401' and dtq.username='KARLA0401';
-
+Prompt Consulta 3
+select username as username,
+  default_tablespace as default_tablespace,
+  temporary_tablespace as temporary_tablespace,
+  (select decode (max_bytes, -1 , 'UNLIMITED'
+                            , max_bytes/1024/1024)
+   from dba_ts_quotas
+   where tablespace_name=(select default_tablespace
+                          from dba_users
+                          where username='KARLA0602')) as quota_mb,
+  (select sum(bytes)/1024/1024
+   from dba_ts_quotas
+   where username='KARLA0602') as allocated_mb,
+  (select sum(blocks)
+   from dba_ts_quotas
+   where username='KARLA0602') as blocks
+from dba_users
+where username='KARLA0602';
 
 whenever sqlerror continue none;
