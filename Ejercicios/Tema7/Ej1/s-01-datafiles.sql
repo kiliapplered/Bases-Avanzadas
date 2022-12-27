@@ -2,8 +2,6 @@
 --@Fecha creación: 25/12/2022
 --@Descripción:    Script 3 del ejercicio 2 del Tema 6: Asignación de cuotas y usuarios
 
-whenever sqlerror exit rollback;
-
 set linesize window
 
 Prompt Conectando como usuario sysdba
@@ -99,5 +97,3 @@ select
 from dba_free_space
 where tablespace_name='STORE_TBS_MULTIPLE'
 group by tablespace_name;
-
-whenever sqlerror continue none;
