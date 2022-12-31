@@ -6,10 +6,7 @@ Prompt Conectando como usuario sysdba
 connect sysdba/system2
 
 -- Inciso A
-!sudo find  /unam-bda/d0*/app
-!sudo ls -l /unam-bda/d01/app/oracle/oradata/KNNBDA2/
-!sudo ls -l /unam-bda/d02/app/oracle/oradata/KNNBDA2/
-!sudo ls -l /unam-bda/d03/app/oracle/oradata/KNNBDA2/
+!sudo find  /unam-bda/d0* -exec du -h {} \; | grep -i app/oracle/oradata/KNNBDA2/redo
 
 -- Inciso B
 select group#, sequence#, round(bytes/1024/1024, 2) size_mb, blocksize, members, status, 
@@ -90,7 +87,4 @@ alter database drop logfile group 3;
 !rm /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo03c.log
 
 -- Inciso M
-!sudo find  /unam-bda/d0*/app
-!sudo ls -l /unam-bda/d01/app/oracle/oradata/KNNBDA2/
-!sudo ls -l /unam-bda/d02/app/oracle/oradata/KNNBDA2/
-!sudo ls -l /unam-bda/d03/app/oracle/oradata/KNNBDA2/
+!sudo find  /unam-bda/d0* -exec du -h {} \; | grep -i app/oracle/oradata/KNNBDA2/redo
