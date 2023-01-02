@@ -3,7 +3,7 @@
 --@Descripción:    Script 3 del ejercicio 2 del Tema 6: Asignación de cuotas y usuarios
 
 Prompt Conectando como usuario sysdba
-connect sysdba/system2
+connect sys/system2 as sysdba
 
 -- Inciso A
 alter database datafile '/u01/app/oracle/oradata/KNNBDA2/store_tbs_multiple_01.dbf' offline;
@@ -14,11 +14,12 @@ alter database datafile '/u01/app/oracle/oradata/KNNBDA2/store_tbs_multiple_03.d
 alter tablespace store_tbs_multiple offline;
 
 -- Inciso C
+select count(*) from karla0701.karla_tbs_multiple;
 
 -- Inciso D
-select file_name, file_id, online_status 
-from dba_data_files 
-where tablespace_name='store_tbs_multiple';
+select file_name, file_id, online_status
+from dba_data_files
+where tablespace_name='STORE_TBS_MULTIPLE';
 
 -- Inciso E
 alter tablespace store_tbs_multiple
@@ -28,19 +29,20 @@ alter tablespace store_tbs_multiple
                 to '/u01/app/oracle/oradata/KNNBDA2/store_tbs_multiple_013.dbf',
                    '/u01/app/oracle/oradata/KNNBDA2/store_tbs_multiple_023.dbf',
                    '/u01/app/oracle/oradata/KNNBDA2/store_tbs_multiple_033.dbf';
-alter tablespace store_tbs_multiple online;
-select file_name, file_id, online_status 
-from dba_data_files 
-where tablespace_name='store_tbs_multiple';
+select file_name, file_id, online_status
+from dba_data_files
+where tablespace_name='STORE_TBS_MULTIPLE';
 
 -- Inciso F
-alter tablespace store_tbs_multiple
-  rename datafile '/u01/app/oracle/oradata/KNNBDA2/store_tbs_multiple_013.dbf',
-                  '/u01/app/oracle/oradata/KNNBDA2/store_tbs_multiple_023.dbf',
-                  '/u01/app/oracle/oradata/KNNBDA2/store_tbs_multiple_033.dbf'
-                to '/u01/app/oracle/oradata/KNNBDA2/store_tbs_multiple_01.dbf',
-                   '/u01/app/oracle/oradata/KNNBDA2/store_tbs_multiple_02.dbf',
-                   '/u01/app/oracle/oradata/KNNBDA2/store_tbs_multiple_03.dbf';
+alter database
+  move datafile '/u01/app/oracle/oradata/KNNBDA2/store_tbs_multiple_013.dbf'
+                to '/u01/app/oracle/oradata/KNNBDA2/store_tbs_multiple_01.dbf';
+alter database
+  move datafile '/u01/app/oracle/oradata/KNNBDA2/store_tbs_multiple_023.dbf'
+                to '/u01/app/oracle/oradata/KNNBDA2/store_tbs_multiple_02.dbf';
+alter database
+  move datafile '/u01/app/oracle/oradata/KNNBDA2/store_tbs_multiple_033.dbf'
+                to '/u01/app/oracle/oradata/KNNBDA2/store_tbs_multiple_03.dbf';
 ! sudo ls -l /u01/app/oracle/oradata/KNNBDA2/
 
 -- Inciso G
