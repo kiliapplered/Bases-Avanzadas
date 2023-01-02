@@ -39,15 +39,15 @@ size 80m blocksize 512;
 -- Inciso F
 alter database
 add logfile member '/unam-bda/d03/app/oracle/oradata/KNNBDA2/redo04c.log' to
-('/unam-bda/d01/app/oracle/oradata/KNNBDA2/redo04a.log','/unam-bda/d02/app/oracle/oradata/KNNBDA2/redo04b.log')
+('/unam-bda/d01/app/oracle/oradata/KNNBDA2/redo04a.log','/unam-bda/d02/app/oracle/oradata/KNNBDA2/redo04b.log');
 
 alter database
 add logfile member '/unam-bda/d03/app/oracle/oradata/KNNBDA2/redo05c.log' to
-('/unam-bda/d01/app/oracle/oradata/KNNBDA2/redo05a.log','/unam-bda/d02/app/oracle/oradata/KNNBDA2/redo05b.log')
+('/unam-bda/d01/app/oracle/oradata/KNNBDA2/redo05a.log','/unam-bda/d02/app/oracle/oradata/KNNBDA2/redo05b.log');
 
 alter database
 add logfile member '/unam-bda/d03/app/oracle/oradata/KNNBDA2/redo06c.log' to
-('/unam-bda/d01/app/oracle/oradata/KNNBDA2/redo06a.log','/unam-bda/d02/app/oracle/oradata/KNNBDA2/redo06b.log')
+('/unam-bda/d01/app/oracle/oradata/KNNBDA2/redo06a.log','/unam-bda/d02/app/oracle/oradata/KNNBDA2/redo06b.log');
 
 -- Inciso G
 select group#, sequence#, round(bytes/1024/1024, 2) size_mb, blocksize, members, status, 
@@ -75,17 +75,23 @@ select group#, sequence#, round(bytes/1024/1024, 2) size_mb, blocksize, members,
 alter database drop logfile group 1;
 alter database drop logfile group 2;
 alter database drop logfile group 3;
+select group#, sequence#, round(bytes/1024/1024, 2) size_mb, blocksize, members, status, 
+  first_change#, to_char(first_time, 'DD/MM/YYYY HH24:MI:SS') fecha_seg, next_change#
+  from v$log;
 
 --Inciso L
-!rm /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo01a.log
-!rm /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo02a.log
-!rm /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo03a.log
-!rm /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo01b.log
-!rm /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo02b.log
-!rm /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo03b.log
-!rm /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo01c.log
-!rm /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo02c.log
-!rm /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo03c.log
+!sudo find  /unam-bda/d0* -exec du -h {} \; | grep -i app/oracle/oradata/KNNBDA2/redo
+!sudo find /unam-bda/d0* -name "*redo*.log" -type f -exec ls -l {} \;
+!sudo rm /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo01a.log
+!sudo rm /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo02a.log
+!sudo rm /unam-bda/d01/app/oracle/oradata/KNNBDA2/redo03a.log
+!sudo rm /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo01b.log
+!sudo rm /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo02b.log
+!sudo rm /unam-bda/d02/app/oracle/oradata/KNNBDA2/redo03b.log
+!sudo rm /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo01c.log
+!sudo rm /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo02c.log
+!sudo rm /unam-bda/d03/app/oracle/oradata/KNNBDA2/redo03c.log
 
 -- Inciso M
 !sudo find  /unam-bda/d0* -exec du -h {} \; | grep -i app/oracle/oradata/KNNBDA2/redo
+!sudo find /unam-bda/d0* -name "*redo*.log" -type f -exec ls -l {} \;
