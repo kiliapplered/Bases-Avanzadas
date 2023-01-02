@@ -5,8 +5,9 @@
 Prompt Conectando como usuario sysdba
 connect sysdba/system2
 
--- Inciso A
+-- Inciso A (2 posibles instrucciones)
 !sudo find  /unam-bda/d0* -exec du -h {} \; | grep -i app/oracle/oradata/KNNBDA2/redo
+!sudo find /unam-bda/d0* -name "*redo*.log" -type f -exec ls -l {} \;
 
 -- Inciso B
 select group#, sequence#, round(bytes/1024/1024, 2) size_mb, blocksize, members, status, 

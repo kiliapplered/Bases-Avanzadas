@@ -46,9 +46,24 @@ alter database
 ! sudo ls -l /u01/app/oracle/oradata/KNNBDA2/
 
 -- Inciso G
+alter database datafile '/u01/app/oracle/oradata/KNNBDA2/store_tbs02.dbf' offline;
 alter tablespace store_tbs1 offline;
-alter tablespace store_tbs1 drop datafile '/u01/app/oracle/oradata/KNNBDA2/store_tbs01.dbf';
-
+shutdownn immediate
+startup
 
 -- Inciso H
-alter tablespace store_tbs1 online;
+alter database datafile '/u01/app/oracle/oradata/KNNBDA2/store_tbs01.dbf' offline for drop;
+drop tablespace store_tbs1 including contents and datafiles;
+
+create tablespace store_tbs1 
+  datafile '/u01/app/oracle/oradata/KNNBDA2/store_tbs01.dbf' 
+    size 20m
+  extent management local autoallocate
+  segment space management auto;
+
+alter tablespace store_tbs1 
+  add datafile '/u01/app/oracle/oradata/KNNBDA2/store_tbs02.dbf' size 5M;
+
+select file_name, file_id, online_status
+from dba_data_files
+where tablespace_name='STORE_TBS1';
