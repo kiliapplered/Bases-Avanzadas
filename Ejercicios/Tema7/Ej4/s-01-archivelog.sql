@@ -5,13 +5,16 @@
 
 -- Inciso 1
 mkdir -p /unam-bda/archivelogs/KNNBDA2/disk_a
-chown -R oracle:oinstall app
-chmod -R 750 app
+sudo chown -R oracle:oinstall /unam-bda/archivelogs/KNNBDA2/disk_a
+sudo chmod -R 750 /unam-bda/archivelogs/KNNBDA2/disk_a
 mkdir -p /unam-bda/archivelogs/KNNBDA2/disk_b
-chown -R oracle:oinstall app
-chmod -R 750 app
+sudo chown -R oracle:oinstall /unam-bda/archivelogs/KNNBDA2/disk_b
+sudo chmod -R 750 /unam-bda/archivelogs/KNNBDA2/disk_b
 
 -- Inciso 2
+Prompt Conectando como usuario sysdba
+connect sys/system2 as sysdba
+
 create pfile='/unam-bda/backup/pfile.txt' from spfile;
 alter system set log_archive_max_processes=2 scope=both;
 alter system set log_archive_dest='/unam-bda/archivelogs/KNNBDA2/disk_a MANDATORY' scope=both;

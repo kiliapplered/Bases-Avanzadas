@@ -3,7 +3,7 @@
 --@Descripción:    Script 2 del ejercicio 2 del Tema 6: Creación de tablespaces
 
 Prompt Conectando como usuario sysdba
-connect sysdba/system2
+connect sys/system2 as sysdba
 
 -- Inciso A (2 posibles instrucciones)
 !sudo find  /unam-bda/d0* -exec du -h {} \; | grep -i app/oracle/oradata/KNNBDA2/redo
