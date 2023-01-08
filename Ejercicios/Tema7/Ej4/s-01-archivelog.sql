@@ -17,8 +17,8 @@ connect sys/system2 as sysdba
 
 create pfile='/tmp/backup/pfile_b1.txt' from spfile;
 alter system set log_archive_max_processes=2 scope=spfile;
-alter system set log_archive_dest='LOCATION=/unam-bda/archivelogs/KNNBDA2/disk_a MANDATORY' scope=spfile;
-alter system set log_archive_dest='LOCATION=/unam-bda/archivelogs/KNNBDA2/disk_b' scope=spfile;
+alter system set log_archive_dest='/unam-bda/archivelogs/KNNBDA2/disk_a MANDATORY' scope=spfile;
+alter system set log_archive_dest='/unam-bda/archivelogs/KNNBDA2/disk_b' scope=spfile;
 alter system set log_archive_format='arch_knnbda2_%t_%s_%r.arc.' scope=spfile;
 alter system set log_archive_min_succeed_dest=1 scope=spfile;
 
@@ -32,4 +32,4 @@ alter database open;
 archive log list
 
 -- Inciso 5
-create spfile '/unam-bda/backup/spfile.ora' from pfile;
+create pfile='/tmp/pfile_b2.txt' from spfile;
