@@ -9,13 +9,11 @@ col value format a15
 connect sys/system2 as sysdba
 
 prompt Tablespace UNDO actualmente en uso:
-select name, value
-from v$parameter
-where name='undo_tablespace';
+select name, value from v$parameter where name='undo_tablespace';
 
 prompt Creando tablespace undo con espacio muy limitado
 create undo tablespace undotbs2
-  datafile '/u01/app/oracle/oradata/FCSBDA2/undotbs_2.dbf'
+  datafile '/u01/app/oracle/oradata/KNNBDA2/undotbs_2.dbf'
   size 30m
   autoextend off
   extent management local autoallocate;
